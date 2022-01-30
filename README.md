@@ -1,34 +1,20 @@
-# apns.io
+# APNS: Avalanche Push Notification Service
 
-## Project setup
-```
-yarn install
-```
+https://apns.io
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+### An "official" entry into the [Moralis + Avalanche hackathon](https://moralis.io/avalanche-hackathon/) by the team from Modenero for Best Opt-In Notification System Implementation for dApps.
 
-### Compiles and minifies for production
-```
-yarn build
-```
+> Snowball is looking for an implementation of a working notification system prototype, which users can opt-in to with a public address and signature. What’s more, Snowball hopes for a solution that ties this together with users’ Discord, Twitter, email, or phone number for notifications. [[source](https://medium.com/snowball-finance/snowball-joins-moralis-avalanche-hackathon-as-official-partner-595baa9bb234)]
 
-### Run your unit tests
-```
-yarn test:unit
-```
+## Introduction
 
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
+For the purpose of this hackathon, we have chosen to integrate the following communication channels:
 
-### Lints and fixes files
-```
-yarn lint
-```
+- [x] Email
+- [x] SMS
+- [x] Slack
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+With the support of Snowball, we would like to NOT only launch this service as a NEW SaSS product for the Avalanche community, but also to extend to the following communication channels:
+
+- [ ] Telegram
+- [ ] Discord
