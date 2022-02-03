@@ -5,7 +5,7 @@
                 <div class="flex items-center flex-1">
                     <div class="flex items-center justify-between w-full lg:w-auto">
                         <a href="javascript://">
-                            <span class="sr-only">APNS Bell</span>
+                            <span class="sr-only">APNS: Avalanche Push Notification Service</span>
                             <img class="h-10 w-auto sm:h-10" :src="require('../assets/logo.png')" alt="" />
                         </a>
                         <div class="-mr-2 flex items-center lg:hidden">

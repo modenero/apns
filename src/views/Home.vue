@@ -1,97 +1,21 @@
 <template>
     <main class="bg-white">
-        <header class="relative">
-            <div class="bg-warm-gray-50">
-                <nav class="relative max-w-7xl mx-auto flex items-center justify-between pt-6 px-6 xl:px-8" aria-label="Global">
-                    <div class="flex items-center flex-1">
-                        <div class="flex items-center justify-between w-full lg:w-auto">
-                            <a href="javascript://">
-                                <span class="sr-only">Workflow</span>
-                                <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=teal&shade=500" alt="" />
-                            </a>
-                            <div class="-mr-2 flex items-center lg:hidden">
-                                <button
-                                    type="button"
-                                    class="bg-warm-gray-50 rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-teal-500"
-                                    aria-expanded="false"
-                                >
-                                    <span class="sr-only">Open main menu</span>
-                                    <!-- Heroicon name: outline/menu -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="hidden space-x-10 lg:flex lg:ml-10">
-                            <a href="javascript://" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">Changelog</a>
-
-                            <a href="javascript://" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">About</a>
-
-                            <a href="javascript://" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">Partners</a>
-
-                            <a href="javascript://" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">News</a>
-                        </div>
-                    </div>
-                    <div class="hidden lg:flex lg:items-center lg:space-x-6">
-                        <a href="javascript://" class="py-2 px-6 bg-warm-gray-100 border border-transparent rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-200">
-                            Login
-                        </a>
-                    </div>
-                </nav>
-            </div>
-
-            <!--
-          Mobile menu, show/hide based on menu open state.
-
-          Entering: "duration-150 ease-out"
-            From: "opacity-0 scale-95"
-            To: "opacity-100 scale-100"
-          Leaving: "duration-100 ease-in"
-            From: "opacity-100 scale-100"
-            To: "opacity-0 scale-95"
-        -->
-            <div class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top lg:hidden">
-                <div class="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                    <div class="px-5 pt-4 flex items-center justify-between">
-                        <div>
-                            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=teal&shade=500" alt="" />
-                        </div>
-                        <div class="-mr-2">
-                            <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
-                                <span class="sr-only">Close menu</span>
-                                <!-- Heroicon name: outline/x -->
-                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="pt-5 pb-6">
-                        <div class="px-2 space-y-1">
-                            <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">Changelog</a>
-
-                            <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">About</a>
-
-                            <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">Partners</a>
-
-                            <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">News</a>
-                        </div>
-                        <div class="mt-6 px-5">
-                            <a href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">Login</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <Header />
 
         <main class="overflow-hidden">
             <!-- Header -->
             <div class="bg-warm-gray-50">
                 <div class="py-24 lg:py-32">
                     <div class="relative z-10 max-w-7xl mx-auto pl-4 pr-8 sm:px-6 lg:px-8">
-                        <h1 class="text-4xl font-extrabold tracking-tight text-warm-gray-900 sm:text-5xl lg:text-6xl">Get in touch</h1>
-                        <p class="mt-6 text-xl text-warm-gray-500 max-w-3xl">Vel nunc non ut montes, viverra tempor. Proin lectus nibh phasellus morbi non morbi. In elementum urna ut volutpat. Sagittis et vel et fermentum amet consequat.</p>
+                        <h1 class="text-4xl font-extrabold tracking-tight text-warm-gray-900 sm:text-5xl lg:text-6xl">
+                            Introducing
+                            <br />DApp Notifications
+                        </h1>
+
+                        <p class="mt-6 text-xl text-warm-gray-500 max-w-3xl">
+                            Simply setup your options below and your all set.
+                            Vel nunc non ut montes, viverra tempor. Proin lectus nibh phasellus morbi non morbi. In elementum urna ut volutpat. Sagittis et vel et fermentum amet consequat.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -110,6 +34,7 @@
                         <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
                     </svg>
                 </div>
+
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="relative bg-white shadow-xl">
                         <h2 id="contact-heading" class="sr-only">Contact us</h2>
@@ -306,50 +231,7 @@
                 </div>
             </section>
 
-            <!-- Contact grid -->
-            <section aria-labelledby="offices-heading">
-                <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-                    <h2 id="offices-heading" class="text-3xl font-extrabold text-warm-gray-900">Our offices</h2>
-                    <p class="mt-6 text-lg text-warm-gray-500 max-w-3xl">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
-                    <div class="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-                        <div>
-                            <h3 class="text-lg font-medium text-warm-gray-900">Los Angeles</h3>
-                            <p class="mt-2 text-base text-warm-gray-500">
-                                <span class="block">4556 Brendan Ferry</span>
-
-                                <span class="block">Los Angeles, CA 90210</span>
-                            </p>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-medium text-warm-gray-900">New York</h3>
-                            <p class="mt-2 text-base text-warm-gray-500">
-                                <span class="block">886 Walter Streets</span>
-
-                                <span class="block">New York, NY 12345</span>
-                            </p>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-medium text-warm-gray-900">Toronto</h3>
-                            <p class="mt-2 text-base text-warm-gray-500">
-                                <span class="block">7363 Cynthia Pass</span>
-
-                                <span class="block">Toronto, ON N3Y 4H8</span>
-                            </p>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-medium text-warm-gray-900">London</h3>
-                            <p class="mt-2 text-base text-warm-gray-500">
-                                <span class="block">114 Cobble Lane</span>
-
-                                <span class="block">London N1 2EF</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <Contact />
         </main>
 
         <Footer />
@@ -358,10 +240,14 @@
 
 <script>
 /* Import components. */
+import Contact from '@/components/Contact'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default {
     components: {
+        Contact,
+        Header,
         Footer,
     }
 }
