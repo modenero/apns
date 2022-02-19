@@ -9,12 +9,13 @@
                     <div class="relative z-10 max-w-7xl mx-auto pl-4 pr-8 sm:px-6 lg:px-8">
                         <h1 class="text-4xl font-extrabold tracking-tight text-warm-gray-900 sm:text-5xl lg:text-6xl">
                             Introducing
-                            <br />DApp Notifications
+                            <br />dApp Notifications
                         </h1>
 
                         <p class="mt-6 text-xl text-warm-gray-500 max-w-3xl">
                             Simply setup your options below and your all set.
-                            Vel nunc non ut montes, viverra tempor. Proin lectus nibh phasellus morbi non morbi. In elementum urna ut volutpat. Sagittis et vel et fermentum amet consequat.
+                            Premium notifications require depositing AVAX into your APNS Wallet.
+                            Sponsored notifications are FREE.
                         </p>
                     </div>
                 </div>
@@ -54,6 +55,7 @@
                                         </defs>
                                     </svg>
                                 </div>
+
                                 <div class="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none sm:block lg:hidden" aria-hidden="true">
                                     <svg class="absolute inset-0 w-full h-full" width="359" height="339" viewBox="0 0 359 339" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M-161 382.107L546.107-325l707.103 707.107-707.103 707.103L-161 382.107z" fill="url(#linear2)" fill-opacity=".1" />
@@ -65,6 +67,7 @@
                                         </defs>
                                     </svg>
                                 </div>
+
                                 <div class="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block" aria-hidden="true">
                                     <svg class="absolute inset-0 w-full h-full" width="160" height="678" viewBox="0 0 160 678" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M-161 679.107L546.107-28l707.103 707.107-707.103 707.103L-161 679.107z" fill="url(#linear3)" fill-opacity=".1" />
@@ -76,10 +79,16 @@
                                         </defs>
                                     </svg>
                                 </div>
-                                <h3 class="text-lg font-medium text-white">Contact information</h3>
-                                <p class="mt-6 text-base text-teal-50 max-w-3xl">Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.</p>
+
+                                <h3 class="text-lg font-medium text-white">Notifiation Details</h3>
+
+                                <p class="mt-6 text-base text-teal-50 max-w-3xl">
+                                    Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.
+                                </p>
+
                                 <dl class="mt-8 space-y-6">
                                     <dt><span class="sr-only">Phone number</span></dt>
+
                                     <dd class="flex text-base text-teal-50">
                                         <!-- Heroicon name: outline/phone -->
                                         <svg class="flex-shrink-0 w-6 h-6 text-teal-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -92,7 +101,9 @@
                                         </svg>
                                         <span class="ml-3">+1 (555) 123-4567</span>
                                     </dd>
+
                                     <dt><span class="sr-only">Email</span></dt>
+
                                     <dd class="flex text-base text-teal-50">
                                         <!-- Heroicon name: outline/mail -->
                                         <svg class="flex-shrink-0 w-6 h-6 text-teal-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -101,6 +112,7 @@
                                         <span class="ml-3">support@workcation.com</span>
                                     </dd>
                                 </dl>
+
                                 <ul role="list" class="mt-8 flex space-x-12">
                                     <li>
                                         <a class="text-teal-200 hover:text-teal-100" href="javascript://">
@@ -114,6 +126,7 @@
                                             </svg>
                                         </a>
                                     </li>
+
                                     <li>
                                         <a class="text-teal-200 hover:text-teal-100" href="javascript://">
                                             <span class="sr-only">GitHub</span>
@@ -126,6 +139,7 @@
                                             </svg>
                                         </a>
                                     </li>
+
                                     <li>
                                         <a class="text-teal-200 hover:text-teal-100" href="javascript://">
                                             <span class="sr-only">Twitter</span>
@@ -142,9 +156,13 @@
                             <!-- Contact form -->
                             <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
                                 <h3 class="text-lg font-medium text-warm-gray-900">Send us a message</h3>
+
                                 <form action="javascript://" method="POST" class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                                     <div>
-                                        <label for="first-name" class="block text-sm font-medium text-warm-gray-900">First name</label>
+                                        <label for="first-name" class="block text-sm font-medium text-warm-gray-900">
+                                            First name
+                                        </label>
+
                                         <div class="mt-1">
                                             <input
                                                 type="text"
@@ -155,8 +173,10 @@
                                             />
                                         </div>
                                     </div>
+
                                     <div>
                                         <label for="last-name" class="block text-sm font-medium text-warm-gray-900">Last name</label>
+
                                         <div class="mt-1">
                                             <input
                                                 type="text"
@@ -167,8 +187,10 @@
                                             />
                                         </div>
                                     </div>
+
                                     <div>
                                         <label for="email" class="block text-sm font-medium text-warm-gray-900">Email</label>
+
                                         <div class="mt-1">
                                             <input
                                                 id="email"
@@ -179,11 +201,13 @@
                                             />
                                         </div>
                                     </div>
+
                                     <div>
                                         <div class="flex justify-between">
                                             <label for="phone" class="block text-sm font-medium text-warm-gray-900">Phone</label>
                                             <span id="phone-optional" class="text-sm text-warm-gray-500">Optional</span>
                                         </div>
+
                                         <div class="mt-1">
                                             <input
                                                 type="text"
@@ -195,17 +219,23 @@
                                             />
                                         </div>
                                     </div>
+
                                     <div class="sm:col-span-2">
-                                        <label for="subject" class="block text-sm font-medium text-warm-gray-900">Subject</label>
+                                        <label for="subject" class="block text-sm font-medium text-warm-gray-900">
+                                            Subject
+                                        </label>
+
                                         <div class="mt-1">
                                             <input type="text" name="subject" id="subject" class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md" />
                                         </div>
                                     </div>
+
                                     <div class="sm:col-span-2">
                                         <div class="flex justify-between">
                                             <label for="message" class="block text-sm font-medium text-warm-gray-900">Message</label>
                                             <span id="message-max" class="text-sm text-warm-gray-500">Max. 500 characters</span>
                                         </div>
+
                                         <div class="mt-1">
                                             <textarea
                                                 id="message"
@@ -216,6 +246,7 @@
                                             ></textarea>
                                         </div>
                                     </div>
+
                                     <div class="sm:col-span-2 sm:flex sm:justify-end">
                                         <button
                                             type="submit"
@@ -249,6 +280,20 @@ export default {
         Contact,
         Header,
         Footer,
-    }
+    },
+    data: () => {
+        return {
+            //
+        }
+    },
+    methods: {
+        //
+    },
+    created: function () {
+        //
+    },
+    mounted: function () {
+        //
+    },
 }
 </script>
