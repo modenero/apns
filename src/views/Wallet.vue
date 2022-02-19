@@ -1,22 +1,13 @@
 <template>
-    <main class="bg-white">
-        <Header />
-
-        <router-view/>
-
-        <Footer />
+    <main>
+        <h1>APNS Wallet</h1>
     </main>
 </template>
 
 <script>
-/* Import components. */
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-
 export default {
     components: {
-        Header,
-        Footer,
+        //
     },
     data: () => {
         return {
@@ -34,7 +25,3 @@ export default {
     },
 }
 </script>
-
-<style>
-/*  */
-</style>

@@ -1,22 +1,16 @@
 <template>
-    <main class="bg-white">
-        <Header />
+    <main>
+        <h1>APNS Help &amp; Support</h1>
 
-        <router-view/>
-
-        <Footer />
+        Open our documenation:
+        <br />https://docs.apns.io
     </main>
 </template>
 
 <script>
-/* Import components. */
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-
 export default {
     components: {
-        Header,
-        Footer,
+        //
     },
     data: () => {
         return {
@@ -34,7 +28,3 @@ export default {
     },
 }
 </script>
-
-<style>
-/*  */
-</style>

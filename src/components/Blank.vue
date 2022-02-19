@@ -1,16 +1,27 @@
 <template>
-    <div class="about">
-        <h1>This is an about page</h1>
-    </div>
+    <main>
+        <h1>This is a Blank template</h1>
+    </main>
 </template>
 
 <script>
-/* Import components. */
-// import Footer from '@/components/Footer'
-
 export default {
     components: {
-        // Footer,
-    }
+        //
+    },
+    data: () => {
+        return {
+            //
+        }
+    },
+    methods: {
+        //
+    },
+    created: function () {
+        //
+    },
+    mounted: function () {
+        //
+    },
 }
 </script>

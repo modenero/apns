@@ -3,11 +3,13 @@
         <div class="bg-warm-gray-50">
             <nav class="relative max-w-7xl mx-auto flex items-center justify-between pt-6 px-6 xl:px-8" aria-label="Global">
                 <div class="flex items-center flex-1">
+
                     <div class="flex items-center justify-between w-full lg:w-auto">
                         <a href="javascript://">
                             <span class="sr-only">APNS: Avalanche Push Notification Service</span>
                             <img class="h-10 w-auto sm:h-10" :src="require('../assets/logo.png')" alt="" />
                         </a>
+
                         <div class="-mr-2 flex items-center lg:hidden">
                             <button
                                 type="button"
@@ -22,16 +24,26 @@
                             </button>
                         </div>
                     </div>
+
                     <div class="hidden space-x-10 lg:flex lg:ml-10">
-                        <a href="javascript://" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">Changelog</a>
+                        <router-link to="/about" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
+                            About
+                        </router-link>
 
-                        <a href="javascript://" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">About</a>
+                        <router-link to="/wallet" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
+                            Wallet
+                        </router-link>
 
-                        <a href="javascript://" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">Partners</a>
+                        <router-link to="/help" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
+                            Need help?
+                        </router-link>
 
-                        <a href="javascript://" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">News</a>
+                        <a @click="hackathon" href="javascript://" class="text-base font-bold text-red-500 hover:text-warm-gray-900">
+                            Moralis + AVAX Hackathon
+                        </a>
                     </div>
                 </div>
+
                 <div class="hidden lg:flex lg:items-center lg:space-x-6">
                     <a href="javascript://" class="py-2 px-6 bg-warm-gray-100 border border-transparent rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-200">
                         Login
@@ -56,6 +68,7 @@
                     <div>
                         <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=teal&shade=500" alt="" />
                     </div>
+
                     <div class="-mr-2">
                         <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
                             <span class="sr-only">Close menu</span>
@@ -66,19 +79,30 @@
                         </button>
                     </div>
                 </div>
+
                 <div class="pt-5 pb-6">
                     <div class="px-2 space-y-1">
-                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">Changelog</a>
+                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                            Changelog
+                        </a>
 
-                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">About</a>
+                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                            About
+                        </a>
 
-                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">Partners</a>
+                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                            Partners
+                        </a>
 
-                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">News</a>
+                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                            News
+                        </a>
                     </div>
+
                     <div class="mt-6 px-5">
                         <a href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">Login</a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -86,12 +110,31 @@
 </template>
 
 <script>
-/* Import components. */
-// import Footer from '@/components/Footer'
-
 export default {
     components: {
-        // Footer,
-    }
+        //
+    },
+    data: () => {
+        return {
+            //
+        }
+    },
+    methods: {
+        hackathon() {
+            alert(`
+Thank you for supporting our Moralis + Avalanche Hackathon project and Team Modenero
+
+Download the Ava GoGo DeFi app TODAY!
+https://avagogo.io/download
+            `)
+        },
+
+    },
+    created: function () {
+        //
+    },
+    mounted: function () {
+        //
+    },
 }
 </script>
