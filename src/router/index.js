@@ -4,6 +4,7 @@ import Home from '../views/Home'
 
 import About from '../views/About'
 import Account from '../views/Account'
+import Airdrop from '../views/Airdrop'
 import Help from '../views/Help'
 
 const routes = [
@@ -18,6 +19,10 @@ const routes = [
     {
         path: '/account',
         component: Account,
+    },
+    {
+        path: '/airdrop',
+        component: Airdrop,
     },
     {
         path: '/help',

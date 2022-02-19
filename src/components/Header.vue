@@ -39,9 +39,9 @@
                             Need help?
                         </router-link>
 
-                        <a @click="hackathon" href="javascript://" class="text-base font-bold text-red-500 hover:text-warm-gray-900">
-                            Moralis + AVAX Hackathon
-                        </a>
+                        <router-link to="/airdrop" class="text-base font-bold text-red-500 hover:text-warm-gray-900">
+                            Hackathon Airdrop
+                        </router-link>
                     </div>
                 </div>
 
