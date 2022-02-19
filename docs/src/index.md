@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: https://apns.io/logo.png
-tagline: Avalanche Push Notification Service
+tagline: Ava's Push Notification Service
 actionText: Quick Start →
 actionLink: /guide/
 features:

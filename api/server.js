@@ -33,7 +33,7 @@ const welcome = `
 <html>
 <body>
 
-<h2>APNS: Avalanche Push Notification Service API</h2>
+<h2>APNS: Ava's Push Notification Service API</h2>
 <h3>https://api.apns.io</h3>
 
 </body>

@@ -10,7 +10,7 @@ const dbAuth = process.env.DB_AUTH
 const db = new PouchDB(`http://apns:${dbAuth}@localhost:5984/apns`)
 
 /**
- * Avalanche Push Notification Service
+ * Ava's Push Notification Service
  */
 const apns = async function (req, res) {
     /* Set id. */

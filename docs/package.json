@@ -1,7 +1,7 @@
 {
   "name": "apns.io",
-  "version": "0.0.1",
-  "description": "Avalanche Push Notification Service",
+  "version": "22.2.19",
+  "description": "Ava's Push Notification Service",
   "main": "index.js",
   "authors": {
     "name": "APNS",

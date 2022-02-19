@@ -1,6 +1,6 @@
 # Introduction
 
-The all-new **Avalanche Push Notification Service (APNS)** offers DeFi users the opportunity to add alerts from ANY of their favorite platforms or individual smart contracts.
+The introduction of **Ava's Push Notification Service (APNS)** offers DeFi users the opportunity to add alerts from ANY of their favorite platforms or individual smart contracts.
 
 ## Sponsored Platforms
 

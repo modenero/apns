@@ -3,8 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home'
 
 import About from '../views/About'
+import Account from '../views/Account'
 import Help from '../views/Help'
-import Wallet from '../views/Wallet'
 
 const routes = [
     {
@@ -16,12 +16,12 @@ const routes = [
         component: About,
     },
     {
-        path: '/help',
-        component: Help,
+        path: '/account',
+        component: Account,
     },
     {
-        path: '/wallet',
-        component: Wallet,
+        path: '/help',
+        component: Help,
     },
 ]
 

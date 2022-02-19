@@ -2,7 +2,7 @@
   "name": "apns_api",
   "version": "22.2.5",
   "license": "MIT",
-  "description": "APNS: Avalanche Push Notification Service API",
+  "description": "APNS: Ava's Push Notification Service API",
   "author": "Modenero Corp <support@modenero.com>",
   "main": "server.js",
   "scripts": {

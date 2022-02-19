@@ -6,12 +6,13 @@
 
                     <div class="flex items-center justify-between w-full lg:w-auto">
                         <a href="javascript://">
-                            <span class="sr-only">APNS: Avalanche Push Notification Service</span>
-                            <img class="h-10 w-auto sm:h-10" :src="require('../assets/logo.png')" alt="" />
+                            <span class="sr-only">APNS: Ava Push Notification Service</span>
+                            <img class="h-12 w-auto sm:h-16" :src="require('../assets/logo.png')" alt="APNS" />
                         </a>
 
                         <div class="-mr-2 flex items-center lg:hidden">
                             <button
+                                @click="showMobileMenu = !showMobileMenu"
                                 type="button"
                                 class="bg-warm-gray-50 rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-teal-500"
                                 aria-expanded="false"
@@ -30,8 +31,8 @@
                             About
                         </router-link>
 
-                        <router-link to="/wallet" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
-                            Wallet
+                        <router-link to="/account" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
+                            My Account
                         </router-link>
 
                         <router-link to="/help" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
@@ -45,8 +46,8 @@
                 </div>
 
                 <div class="hidden lg:flex lg:items-center lg:space-x-6">
-                    <a href="javascript://" class="py-2 px-6 bg-warm-gray-100 border border-transparent rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-200">
-                        Login
+                    <a href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                        Connect Your Wallet
                     </a>
                 </div>
             </nav>
@@ -62,15 +63,15 @@
         From: "opacity-100 scale-100"
         To: "opacity-0 scale-95"
     -->
-        <div class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top lg:hidden">
+        <div v-if="showMobileMenu" class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top lg:hidden">
             <div class="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                 <div class="px-5 pt-4 flex items-center justify-between">
                     <div>
-                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=teal&shade=500" alt="" />
+                        <img class="h-12 w-auto" :src="require('../assets/logo.png')" alt="APNS" />
                     </div>
 
                     <div class="-mr-2">
-                        <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+                        <button @click="showMobileMenu = !showMobileMenu" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
                             <span class="sr-only">Close menu</span>
                             <!-- Heroicon name: outline/x -->
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -82,25 +83,27 @@
 
                 <div class="pt-5 pb-6">
                     <div class="px-2 space-y-1">
-                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
-                            Changelog
-                        </a>
-
-                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                        <router-link to="/about" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
                             About
-                        </a>
+                        </router-link>
 
-                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
-                            Partners
-                        </a>
+                        <router-link to="/account" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                            My Account
+                        </router-link>
 
-                        <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
-                            News
+                        <router-link to="/help" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                            Need help?
+                        </router-link>
+
+                        <a @click="hackathon" href="javascript://" class="block px-3 py-2 rounded-md text-base font-bold text-red-500 hover:bg-warm-gray-50">
+                            Moralis + AVAX Hackathon
                         </a>
                     </div>
 
                     <div class="mt-6 px-5">
-                        <a href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">Login</a>
+                        <a href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                            Connect Your Wallet
+                        </a>
                     </div>
 
                 </div>
@@ -116,7 +119,7 @@ export default {
     },
     data: () => {
         return {
-            //
+            showMobileMenu: null,
         }
     },
     methods: {
@@ -131,7 +134,8 @@ https://avagogo.io/download
 
     },
     created: function () {
-        //
+        /* Set mobile menu flag. */
+        this.showMobileMenu = false
     },
     mounted: function () {
         //
