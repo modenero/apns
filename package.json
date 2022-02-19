@@ -1,6 +1,6 @@
 {
   "name": "apns.io",
-  "version": "21.1.29",
+  "version": "22.2.5",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -16,8 +16,8 @@
     "numeral": "2.0.6",
     "uuid": "8.3.2",
     "vue": "3.0.0",
-    "vue-router": "4.0.0-0",
-    "vuex": "4.0.0-0"
+    "vue-router": "4.0.12",
+    "vuex": "4.0.2"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "0.2.1",

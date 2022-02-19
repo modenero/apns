@@ -1,6 +1,6 @@
 {
   "name": "apns_api",
-  "version": "22.2.3",
+  "version": "22.2.5",
   "license": "MIT",
   "description": "APNS: Avalanche Push Notification Service API",
   "author": "Modenero Corp <support@modenero.com>",
@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "crypto-js": "4.1.1",
+    "ethers": "5.5.4",
     "express": "4.17.2",
     "moment": "2.29.1",
+    "moralis": "1.2.6",
     "numeral": "2.0.6",
     "pouchdb": "7.2.2",
     "superagent": "7.1.1",
