@@ -25,9 +25,15 @@ With the support of Snowball, we would like to NOT only launch this service as a
 Our premium services require you to stake your $APNS tokens.
 
 
-## Supported Networks
+## $APNS
 
-Our aim is to provide a premium DeFi experience across ALL blockchains. We're currently actively supporting or planning to support the following networks:
+Tokenomics are coming soon..
+
+
+## Blockchains
+
+Our aim is to provide a premium DeFi experience across ALL blockchains.
+We're currently actively supporting or planning to support the following networks:
 
 - [ ] Arbitrum
 - [x] Avalanche
@@ -35,3 +41,19 @@ Our aim is to provide a premium DeFi experience across ALL blockchains. We're cu
 - [ ] Ethereum
 - [ ] Fantom
 - [x] Polygon
+- [ ] Smart Bitcoin
+
+
+## Platforms
+
+We are committed to supporting the MOST popular platforms on ALL of the most popular blockchains.
+
+- [x] Aave
+- [x] Alpha Finance Lab
+- [ ] BENQI
+- [ ] Curve
+- [ ] MistSwap
+- [ ] PancakeSwap
+- [ ] Pangolin
+- [ ] Trader Joe
+- [ ] Yield Yak
