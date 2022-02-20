@@ -27,7 +27,7 @@
 
                         <div class="relative px-8">
                             <div>
-                                <img class="h-12" src="https://tailwindui.com/img/logos/workcation.svg?color=white" alt="Workcation" />
+                                <img class="h-24" :src="require('../assets/ava-nakamoto.png')" alt="Ava Nakamoto" />
                             </div>
 
                             <blockquote class="mt-8">
@@ -37,11 +37,17 @@
                                             d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
                                         />
                                     </svg>
-                                    <p class="relative">Tincidunt integer commodo, cursus etiam aliquam neque, et. Consectetur pretium in volutpat, diam. Montes, magna cursus nulla feugiat dignissim id lobortis amet.</p>
+
+                                    <p class="relative">
+                                        It's been my mission to create the ultimate mobile DeFi experience for my community.
+                                        The launch of my NEW Push Notification Service is a major step in delivering that dream.
+                                    </p>
                                 </div>
 
                                 <footer class="mt-4">
-                                    <p class="text-base font-semibold text-indigo-200">Sarah Williams, CEO at Workcation</p>
+                                    <p class="text-base font-semibold text-indigo-200">
+                                        Ava Nakamoto, APNS Architect
+                                    </p>
                                 </footer>
                             </blockquote>
                         </div>
@@ -81,7 +87,8 @@
 
                 <!-- Stats section -->
                 <div class="mt-10">
-                    <dl class="grid grid-cols-2 gap-x-4 gap-y-8">
+                    <dl class="grid grid-cols-2 gap-x-4 gap-y-8 text-center">
+
                         <div class="border-t-2 border-gray-100 pt-6">
                             <dt class="text-base font-medium text-gray-500">
                                 Airdrop Started
@@ -90,6 +97,17 @@
                             <dd class="text-xl font-extrabold tracking-tight text-gray-900">
                                 Sunday, February 20th
                                 <br />@ 00:00 UTC
+                            </dd>
+                        </div>
+
+                        <div class="border-t-2 border-gray-100 pt-6">
+                            <dt class="text-base font-medium text-gray-500">
+                                Airdrop Ending
+                            </dt>
+
+                            <dd class="text-xl font-extrabold tracking-tight text-gray-900">
+                                Sunday, March 20th
+                                <br />30 days left
                             </dd>
                         </div>
 
@@ -105,7 +123,7 @@
 
                         <div class="border-t-2 border-gray-100 pt-6">
                             <dt class="text-base font-medium text-gray-500">
-                                Total $APNS Sent
+                                Total $APNS Claimed
                             </dt>
 
                             <dd class="text-3xl font-extrabold tracking-tight text-gray-900">
@@ -113,7 +131,7 @@
                             </dd>
                         </div>
 
-                        <div class="border-t-2 border-gray-100 pt-6">
+                        <div class="hidden border-t-2 border-gray-100 pt-6">
                             <dt class="text-base font-medium text-gray-500">
                                 $APNS Remaining
                             </dt>
