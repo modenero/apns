@@ -166,6 +166,7 @@ export default {
                         alert(err.message)
                     }
                 })
+            console.log('MORALIS USER', user)
 
             /* Save user. */
             this.setUser(user)

@@ -103,53 +103,190 @@
                         <form action="javascript://" class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
 
                             <div class="sm:col-span-2">
-                                <label for="contract-address" class="block text-sm font-medium text-warm-gray-900">
-                                    Contract Address
+                                <label for="wallet-address" class="block text-lg font-medium text-gray-500">
+                                    Wallet
                                 </label>
 
                                 <div class="mt-1">
                                     <input
+                                        v-model="address"
                                         type="text"
-                                        name="contract-address"
-                                        id="contract-address"
-                                        placeholder="Enter a contract address OR platform name"
+                                        name="wallet-address"
+                                        id="wallet-address"
+                                        placeholder="Enter your wallet address here"
                                         class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                                     />
                                 </div>
                             </div>
 
-                            <div class="hidden">
-                                <label for="first-name" class="block text-sm font-medium text-warm-gray-900">
-                                    First name
+                            <div class="sm:col-span-2">
+                                <label for="wallet-address" class="block text-lg font-medium text-gray-500">
+                                    Blockchain
                                 </label>
 
-                                <div class="mt-1">
-                                    <input
-                                        type="text"
-                                        name="first-name"
-                                        id="first-name"
-                                        autocomplete="given-name"
-                                        class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
-                                    />
-                                </div>
+                                <fieldset class="mt-1">
+                                    <legend class="sr-only">Privacy setting</legend>
+                                    <div class="bg-white rounded-md -space-y-px">
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                type="radio"
+                                                name="blockchain"
+                                                value="AVAX"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="blockchain-0-label"
+                                                aria-describedby="blockchain-0-description"
+                                            />
+
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="blockchain-0-label" class="block text-sm font-medium">
+                                                    Avalanche (AVAX)
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="blockchain-0-description" class="block text-sm">
+                                                    Create a NEW alert on the Avalanche blockchain.
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                type="radio"
+                                                name="blockchain"
+                                                value="ETH"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="blockchain-1-label"
+                                                aria-describedby="blockchain-1-description"
+                                            />
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="blockchain-1-label" class="block text-sm font-medium">
+                                                    Ethereum (ETH)
+                                                </span>
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="blockchain-1-description" class="block text-sm">
+                                                    This blockchain is NOT available in this "alpha" demo.
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                type="radio"
+                                                name="blockchain"
+                                                value="MATIC"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="blockchain-2-label"
+                                                aria-describedby="blockchain-2-description"
+                                            />
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="blockchain-2-label" class="block text-sm font-medium">
+                                                    Polygon (MATIC)
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="blockchain-2-description" class="block text-sm">
+                                                    Create a NEW alert on the Polygon blockchain.
+                                                </span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </fieldset>
                             </div>
 
-                            <div class="hidden">
-                                <label for="last-name" class="block text-sm font-medium text-warm-gray-900">Last name</label>
+                            <div class="sm:col-span-2">
+                                <label for="platform" class="block text-lg font-medium text-gray-500">
+                                    Platform <span class="text-xs text-red-500 font-medium">(optional)</span>
+                                </label>
 
-                                <div class="mt-1">
-                                    <input
-                                        type="text"
-                                        name="last-name"
-                                        id="last-name"
-                                        autocomplete="family-name"
-                                        class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
-                                    />
-                                </div>
+                                <small>
+                                    If you don't specifiy a platform, you'll receive ALL transaction activity for <span class="text-red-500 font-light">{{address}}</span>.
+                                </small>
+
+                                <fieldset class="mt-1">
+                                    <legend class="sr-only">Privacy setting</legend>
+                                    <div class="bg-white rounded-md -space-y-px">
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                type="radio"
+                                                name="blockchain"
+                                                value="AVAX"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="blockchain-0-label"
+                                                aria-describedby="blockchain-0-description"
+                                            />
+
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="blockchain-0-label" class="block text-sm font-medium">
+                                                    Aave (Polygon)
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="blockchain-0-description" class="block text-sm">
+                                                    Create custom alerts for ANY activity on Aave.
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                type="radio"
+                                                name="blockchain"
+                                                value="ETH"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="blockchain-1-label"
+                                                aria-describedby="blockchain-1-description"
+                                            />
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="blockchain-1-label" class="block text-sm font-medium">
+                                                    Alpha Finance Lab (Avalanche)
+                                                </span>
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="blockchain-1-description" class="block text-sm">
+                                                    Create custom alerts for ANY activity on Homoro v2 and AlphaX.
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                type="radio"
+                                                name="blockchain"
+                                                value="MATIC"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="blockchain-2-label"
+                                                aria-describedby="blockchain-2-description"
+                                            />
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="blockchain-2-label" class="block text-sm font-medium">
+                                                    Balancer (Arbitrum)
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="blockchain-2-description" class="block text-sm">
+                                                    Support for this platform is coming soon..
+                                                </span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </fieldset>
                             </div>
 
                             <div>
-                                <label for="email" class="block text-sm font-medium text-warm-gray-900">Email</label>
+                                <label for="email" class="block text-lg font-medium text-gray-500">
+                                    Email
+                                </label>
 
                                 <div class="mt-1">
                                     <input
@@ -163,25 +300,31 @@
                             </div>
 
                             <div>
-                                <div class="flex justify-between">
-                                    <label for="phone" class="block text-sm font-medium text-warm-gray-900">Phone</label>
-                                    <span id="phone-optional" class="text-sm text-warm-gray-500">Optional</span>
+                                <div class="flex justify-between items-center">
+                                    <label for="mobile" class="block text-lg font-medium text-gray-500">
+                                        Mobile
+                                    </label>
+
+                                    <span id="mobile-optional" class="mr-3 text-xs text-red-500 font-medium">
+                                        PREMIUM ($)
+                                    </span>
                                 </div>
 
                                 <div class="mt-1">
                                     <input
+                                        v-model="mobile"
                                         type="text"
-                                        name="phone"
-                                        id="phone"
+                                        name="mobile"
+                                        id="mobile"
                                         autocomplete="tel"
                                         class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
-                                        aria-describedby="phone-optional"
+                                        aria-describedby="mobile-optional"
                                     />
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-2 hidden">
-                                <label for="subject" class="block text-sm font-medium text-warm-gray-900">
+                            <div class="sm:col-span-2">
+                                <label for="subject" class="block text-lg font-medium text-gray-500">
                                     Subject
                                 </label>
 
@@ -191,9 +334,14 @@
                             </div>
 
                             <div class="sm:col-span-2">
-                                <div class="flex justify-between">
-                                    <label for="message" class="block text-sm font-medium text-warm-gray-900">Message</label>
-                                    <span id="message-max" class="text-sm text-warm-gray-500">Max. 500 characters</span>
+                                <div class="flex justify-between items-center">
+                                    <label for="message" class="block text-lg font-medium text-gray-500">
+                                        Message
+                                    </label>
+
+                                    <span id="message-max" class="mr-3 text-xs text-red-500">
+                                        Max. 500 characters
+                                    </span>
                                 </div>
 
                                 <div class="mt-1">
@@ -213,7 +361,7 @@
                                     type="submit"
                                     class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-500 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:w-auto"
                                 >
-                                    Submit
+                                    Create a New Alert
                                 </button>
                             </div>
                         </form>
@@ -232,7 +380,8 @@ export default {
     },
     data: () => {
         return {
-            //
+            address: null,
+            mobile: null,
         }
     },
     methods: {
