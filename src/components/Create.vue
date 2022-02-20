@@ -58,7 +58,7 @@
                         </div>
 
                         <h3 class="text-2xl font-medium text-white">
-                            NEW Alert Guide
+                            Create NEW Alert Guide
                         </h3>
 
                         <p class="mt-6 text-base text-teal-50 max-w-3xl">
@@ -69,7 +69,7 @@
                             <strong class="block text-lg">IMPORTANT NOTE:</strong>
 
                             <span class="block mt-2">
-                                This service <strong>DOES NOT</strong> depend on a centralized API server.
+                                This service <strong>DOES NOT</strong> depend on a centralized API server, making it an <strong>UNSTOPPABLE</strong> solution.
                             </span>
 
                             <span class="block mt-2">
@@ -120,7 +120,7 @@
 
                             <div class="sm:col-span-2">
                                 <label for="wallet-address" class="block text-lg font-medium text-gray-500">
-                                    Wallet
+                                    Wallet <span class="text-xs text-red-500 font-medium">(required)</span>
                                 </label>
 
                                 <div class="mt-1">
@@ -129,23 +129,24 @@
                                         type="text"
                                         name="wallet-address"
                                         id="wallet-address"
-                                        placeholder="Enter your wallet address here"
+                                        placeholder="enter your wallet address here"
                                         class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                                     />
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-2">
+                            <div v-if="address" class="sm:col-span-2">
                                 <label for="wallet-address" class="block text-lg font-medium text-gray-500">
-                                    Blockchain
+                                    Blockchain <span class="text-xs text-red-500 font-medium">(required)</span>
                                 </label>
 
                                 <fieldset class="mt-1">
-                                    <legend class="sr-only">Privacy setting</legend>
+                                    <legend class="sr-only">Blockchain setting</legend>
                                     <div class="bg-white rounded-md -space-y-px">
                                         <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
                                         <label class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer focus:outline-none">
                                             <input
+                                                v-model="blockchain"
                                                 type="radio"
                                                 name="blockchain"
                                                 value="AVAX"
@@ -170,9 +171,11 @@
                                         <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
                                         <label class="relative border p-4 flex cursor-pointer focus:outline-none">
                                             <input
+                                                v-model="blockchain"
                                                 type="radio"
                                                 name="blockchain"
                                                 value="ETH"
+                                                disabled
                                                 class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
                                                 aria-labelledby="blockchain-1-label"
                                                 aria-describedby="blockchain-1-description"
@@ -192,6 +195,7 @@
                                         <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
                                         <label class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer focus:outline-none">
                                             <input
+                                                v-model="blockchain"
                                                 type="radio"
                                                 name="blockchain"
                                                 value="MATIC"
@@ -215,97 +219,14 @@
                                 </fieldset>
                             </div>
 
-                            <div class="sm:col-span-2">
-                                <label for="platform" class="block text-lg font-medium text-gray-500">
-                                    Platform <span class="text-xs text-red-500 font-medium">(optional)</span>
-                                </label>
-
-                                <small>
-                                    If you don't specifiy a platform, you'll receive ALL transaction activity for <span class="text-red-500 font-light">{{address}}</span>.
-                                </small>
-
-                                <fieldset class="mt-1">
-                                    <legend class="sr-only">Privacy setting</legend>
-                                    <div class="bg-white rounded-md -space-y-px">
-                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
-                                        <label class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer focus:outline-none">
-                                            <input
-                                                type="radio"
-                                                name="blockchain"
-                                                value="AVAX"
-                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
-                                                aria-labelledby="blockchain-0-label"
-                                                aria-describedby="blockchain-0-description"
-                                            />
-
-                                            <div class="ml-3 flex flex-col">
-                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
-                                                <span id="blockchain-0-label" class="block text-sm font-medium">
-                                                    Aave (Polygon)
-                                                </span>
-
-                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
-                                                <span id="blockchain-0-description" class="block text-sm">
-                                                    Create custom alerts for ANY activity on Aave.
-                                                </span>
-                                            </div>
-                                        </label>
-
-                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
-                                        <label class="relative border p-4 flex cursor-pointer focus:outline-none">
-                                            <input
-                                                type="radio"
-                                                name="blockchain"
-                                                value="ETH"
-                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
-                                                aria-labelledby="blockchain-1-label"
-                                                aria-describedby="blockchain-1-description"
-                                            />
-                                            <div class="ml-3 flex flex-col">
-                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
-                                                <span id="blockchain-1-label" class="block text-sm font-medium">
-                                                    Alpha Finance Lab (Avalanche)
-                                                </span>
-                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
-                                                <span id="blockchain-1-description" class="block text-sm">
-                                                    Create custom alerts for ANY activity on Homoro v2 and AlphaX.
-                                                </span>
-                                            </div>
-                                        </label>
-
-                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
-                                        <label class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer focus:outline-none">
-                                            <input
-                                                type="radio"
-                                                name="blockchain"
-                                                value="MATIC"
-                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
-                                                aria-labelledby="blockchain-2-label"
-                                                aria-describedby="blockchain-2-description"
-                                            />
-                                            <div class="ml-3 flex flex-col">
-                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
-                                                <span id="blockchain-2-label" class="block text-sm font-medium">
-                                                    Balancer (Arbitrum)
-                                                </span>
-
-                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
-                                                <span id="blockchain-2-description" class="block text-sm">
-                                                    Support for this platform is coming soon..
-                                                </span>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </fieldset>
-                            </div>
-
-                            <div>
+                            <div v-if="blockchain">
                                 <label for="email" class="block text-lg font-medium text-gray-500">
                                     Email
                                 </label>
 
                                 <div class="mt-1">
                                     <input
+                                        v-model="email"
                                         id="email"
                                         name="email"
                                         type="email"
@@ -316,7 +237,7 @@
                                 </div>
                             </div>
 
-                            <div>
+                            <div v-if="blockchain">
                                 <div class="flex justify-between items-center">
                                     <label for="mobile" class="block text-lg font-medium text-gray-500">
                                         Mobile
@@ -341,26 +262,103 @@
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-2">
-                                <label for="subject" class="block text-lg font-medium text-gray-500">
-                                    Subject
+                            <div v-if="blockchain">
+                                <label for="email" class="block text-lg font-medium text-gray-500">
+                                    Telegram
                                 </label>
 
                                 <div class="mt-1">
                                     <input
-                                        type="text"
-                                        name="subject"
-                                        id="subject"
-                                        placeholder="Enter your message subject here"
+                                        v-model="telegram"
+                                        id="telegram"
+                                        name="telegram"
+                                        type="telegram"
+                                        autocomplete="telegram"
+                                        disabled
+                                        placeholder="enter your Telegram username"
                                         class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                                     />
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-2">
+                            <div v-if="blockchain">
+                                <label for="email" class="block text-lg font-medium text-gray-500">
+                                    Signal
+                                </label>
+
+                                <div class="mt-1">
+                                    <input
+                                        v-model="signal"
+                                        id="signal"
+                                        name="signal"
+                                        type="signal"
+                                        autocomplete="signal"
+                                        disabled
+                                        placeholder="+1 404 555-1337"
+                                        class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                    />
+                                </div>
+                            </div>
+
+                            <div v-if="blockchain">
+                                <label for="email" class="block text-lg font-medium text-gray-500">
+                                    Discord
+                                </label>
+
+                                <div class="mt-1">
+                                    <input
+                                        v-model="discord"
+                                        id="discord"
+                                        name="discord"
+                                        type="discord"
+                                        autocomplete="discord"
+                                        disabled
+                                        placeholder="enter your Discord username"
+                                        class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                    />
+                                </div>
+                            </div>
+
+                            <div v-if="blockchain">
+                                <label for="email" class="block text-lg font-medium text-gray-500">
+                                    Slack
+                                </label>
+
+                                <div class="mt-1">
+                                    <input
+                                        v-model="slack"
+                                        id="slack"
+                                        name="slack"
+                                        type="slack"
+                                        autocomplete="slack"
+                                        disabled
+                                        placeholder="enter your Slack username"
+                                        class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                    />
+                                </div>
+                            </div>
+
+                            <div v-if="email || mobile" class="sm:col-span-2">
+                                <label for="subject" class="block text-lg font-medium text-gray-500">
+                                    Subject <span class="text-xs text-gray-400 font-medium">(optional)</span>
+                                </label>
+
+                                <div class="mt-1">
+                                    <input
+                                        v-model="subject"
+                                        type="text"
+                                        name="subject"
+                                        id="subject"
+                                        placeholder="enter your message subject here"
+                                        class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                    />
+                                </div>
+                            </div>
+
+                            <div v-if="email || mobile" class="sm:col-span-2">
                                 <div class="flex justify-between items-center">
                                     <label for="message" class="block text-lg font-medium text-gray-500">
-                                        Message
+                                        Message <span class="text-xs text-gray-400 font-medium">(optional)</span>
                                     </label>
 
                                     <span id="message-max" class="mr-3 text-xs text-red-500">
@@ -370,6 +368,7 @@
 
                                 <div class="mt-1">
                                     <textarea
+                                        v-model="body"
                                         id="message"
                                         name="message"
                                         rows="4"
@@ -379,11 +378,248 @@
                                 </div>
                             </div>
 
+                            <div v-if="email || mobile" class="sm:col-span-2">
+                                <label for="platform" class="block text-lg font-medium text-gray-500">
+                                    Platform <span class="text-xs text-gray-400 font-medium">(optional)</span>
+                                </label>
+
+                                <small>
+                                    If you don't specifiy a platform, you'll receive ALL transaction activity for <span class="text-red-500 font-light">{{address}}</span>.
+                                </small>
+
+                                <fieldset class="mt-1">
+                                    <legend class="sr-only">Platform setting</legend>
+                                    <div class="bg-white rounded-md -space-y-px">
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                v-model="platform"
+                                                type="radio"
+                                                name="platform"
+                                                value="AAVE"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="platform-0-label"
+                                                aria-describedby="platform-0-description"
+                                            />
+
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="platform-0-label" class="block text-sm font-medium">
+                                                    Aave (Polygon)
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="platform-0-description" class="block text-sm">
+                                                    Create custom alerts for ANY activity on Aave.
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                v-model="platform"
+                                                type="radio"
+                                                name="platform"
+                                                value="ALPHA_FINANCE_LAB"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="platform-1-label"
+                                                aria-describedby="platform-1-description"
+                                            />
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="platform-1-label" class="block text-sm font-medium">
+                                                    Alpha Finance Lab (Avalanche)
+                                                </span>
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="platform-1-description" class="block text-sm">
+                                                    Create custom alerts for ANY activity on Homoro v2 and AlphaX.
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                v-model="platform"
+                                                type="radio"
+                                                name="platform"
+                                                value="BALANCER"
+                                                disabled
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="platform-2-label"
+                                                aria-describedby="platform-2-description"
+                                            />
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="platform-2-label" class="block text-sm font-medium">
+                                                    Balancer (Arbitrum)
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="platform-2-description" class="block text-sm">
+                                                    Support for this platform is coming soon..
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                v-model="platform"
+                                                type="radio"
+                                                name="platform"
+                                                value="POOL_TOGETHER"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="platform-0-label"
+                                                aria-describedby="platform-0-description"
+                                            />
+
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="platform-0-label" class="block text-sm font-medium">
+                                                    PoolTogether (Polygon)
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="platform-0-description" class="block text-sm">
+                                                    PoolTogether is a crypto-powered savings protocol based on Premium Bonds.
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div v-if="email || mobile" class="sm:col-span-2">
+                                <label for="frequency" class="block text-lg font-medium text-gray-500">
+                                    Frequency <span class="text-xs text-red-500 font-medium">(required)</span>
+                                </label>
+
+                                <small>
+                                    If you don't specifiy a frequency, you'll receive ALL transaction activity immediately.
+                                </small>
+
+                                <fieldset class="mt-1">
+                                    <legend class="sr-only">Frequency setting</legend>
+                                    <div class="bg-white rounded-md -space-y-px">
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                v-model="frequency"
+                                                type="radio"
+                                                name="frequency"
+                                                value=""
+                                                checked
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="frequency-0-label"
+                                                aria-describedby="frequency-0-description"
+                                            />
+
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="frequency-0-label" class="block text-sm font-medium">
+                                                    Immediate
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="frequency-0-description" class="block text-sm">
+                                                    Create custom alerts for ANY activity on Aave.
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                v-model="frequency"
+                                                type="radio"
+                                                name="frequency"
+                                                value="DAILY"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="frequency-1-label"
+                                                aria-describedby="frequency-1-description"
+                                            />
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="frequency-1-label" class="block text-sm font-medium">
+                                                    Daily
+                                                </span>
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="frequency-1-description" class="block text-sm">
+                                                    Create custom alerts for ANY activity on Homoro v2 and AlphaX.
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                v-model="frequency"
+                                                type="radio"
+                                                name="frequency"
+                                                value="WEEKLY"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="frequency-2-label"
+                                                aria-describedby="frequency-2-description"
+                                            />
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="frequency-2-label" class="block text-sm font-medium">
+                                                    Weekly
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="frequency-2-description" class="block text-sm">
+                                                    Support for this platform is coming soon..
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                        <!-- Checked: "bg-indigo-50 border-indigo-200 z-10", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer focus:outline-none">
+                                            <input
+                                                v-model="frequency"
+                                                type="radio"
+                                                name="frequency"
+                                                value="MONTHLY"
+                                                class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                                aria-labelledby="frequency-2-label"
+                                                aria-describedby="frequency-2-description"
+                                            />
+                                            <div class="ml-3 flex flex-col">
+                                                <!-- Checked: "text-indigo-900", Not Checked: "text-gray-900" -->
+                                                <span id="frequency-2-label" class="block text-sm font-medium">
+                                                    Monthly
+                                                </span>
+
+                                                <!-- Checked: "text-indigo-700", Not Checked: "text-gray-500" -->
+                                                <span id="frequency-2-description" class="block text-sm">
+                                                    Support for this platform is coming soon..
+                                                </span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
                             <div class="sm:col-span-2 sm:flex sm:justify-end">
                                 <button
-                                    @click="createAlert"
+                                    v-if="isReadyToSubmit"
+                                    @click="create"
                                     type="submit"
                                     class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-500 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:w-auto"
+                                >
+                                    Create a New Alert
+                                </button>
+
+                                <button
+                                    v-if="!isReadyToSubmit"
+                                    type="submit"
+                                    disabled
+                                    class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 cursor-default border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-300 focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:w-auto"
                                 >
                                     Create a New Alert
                                 </button>
@@ -405,11 +641,43 @@ export default {
     data: () => {
         return {
             address: null,
+            body: null,
+            blockchain: null,
+            discord: null,
+            email: null,
+            frequency: null,
             mobile: null,
+            platform: null,
+            signal: null,
+            slack: null,
+            subject: null,
+            telegram: null,
+        }
+    },
+    computed: {
+        isReadyToSubmit() {
+            /* Validate address. */
+            if (!this.address) return false
+
+            /* Validate blockchain. */
+            if (!this.blockchain) return false
+
+            /* Validate channel. */
+            if (!this.email && !this.mobile) return false
+
+            /* Return true. */
+            return true
         }
     },
     methods: {
-        createAlert() {
+        /**
+         * Create
+         *
+         * This will create a new alert.
+         *
+         * NOTE: This requires on-chain gas to be spent.
+         */
+        create() {
             /* Initialize package. */
             let pkg = {}
 
@@ -420,6 +688,39 @@ export default {
 
             /* Set address. */
             pkg.address = this.address
+
+            /* Set blockchain. */
+            pkg.blockchain = this.blockchain
+
+            /* Set email. */
+            pkg.email = this.email
+
+            /* Set mobile. */
+            pkg.mobile = this.mobile
+
+            /* Set Signal. */
+            pkg.signal = this.signal
+
+            /* Set Telegram. */
+            pkg.telegram = this.telegram
+
+            /* Set Discord. */
+            pkg.discord = this.discord
+
+            /* Set Slack. */
+            pkg.slack = this.slack
+
+            /* Set subject. */
+            pkg.subject = this.subject
+
+            /* Set body. */
+            pkg.body = this.body
+
+            /* Set platform. */
+            pkg.platform = this.platform
+
+            /* Set frequency. */
+            pkg.frequency = this.frequency
 
             // FOR DEBUGGING PURPOSES ONLY
             alert(JSON.stringify(pkg, null, 4))

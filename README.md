@@ -48,6 +48,7 @@ We're currently actively supporting or planning to support the following network
 
 We are committed to supporting the MOST popular platforms on ALL of the most popular blockchains.
 
+- [ ] 1inch Network
 - [x] Aave
 - [x] Alpha Finance Lab
 - [ ] BENQI
@@ -55,5 +56,13 @@ We are committed to supporting the MOST popular platforms on ALL of the most pop
 - [ ] MistSwap
 - [ ] PancakeSwap
 - [ ] Pangolin
+- [ ] QiDao
 - [ ] Trader Joe
 - [ ] Yield Yak
+
+
+## UNSTOPPABLE
+
+APNS **DOES NOT** depend on a centralized API server, which makes us an **UNSTOPPABLE Service Provider (USP).**
+All of your requests are sent using **[Event Logs]()**, which are recorded on-chain.
+Our distributed network of blockchain servers read those logs and fulfill your requests.

@@ -1,6 +1,12 @@
 # Introduction
 
-The introduction of **Ava's Push Notification Service (APNS)** offers DeFi users the opportunity to add alerts from ANY of their favorite platforms or individual smart contracts.
+The introduction of **Ava's Push Notification Service (APNS)** offers DeFi users the opportunity to add custom alerts for ANY of their favorite platforms or individual smart contracts.
+
+##### IMPORTANT NOTE:  
+APNS **DOES NOT** depend on a centralized API server, which makes us an **UNSTOPPABLE Service Provider (USP).**
+All of your requests are sent using **[Event Logs]()**, which are recorded on-chain.
+Our distributed network of blockchain servers read those logs and fulfill your requests.
+
 
 ## Sponsored Platforms
 
