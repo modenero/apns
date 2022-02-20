@@ -12,7 +12,7 @@
 
                         <div class="-mr-2 flex items-center lg:hidden">
                             <button
-                                @click="showMobileMenu = !showMobileMenu"
+                                @click="toggleMobileMenu"
                                 type="button"
                                 class="bg-warm-gray-50 rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-teal-500"
                                 aria-expanded="false"
@@ -66,12 +66,12 @@
         <div v-if="showMobileMenu" class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top lg:hidden">
             <div class="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                 <div class="px-5 pt-4 flex items-center justify-between">
-                    <div>
+                    <a @click="home" href="javascript://">
                         <img class="h-12 w-auto" :src="require('../assets/logo.png')" alt="APNS" />
-                    </div>
+                    </a>
 
                     <div class="-mr-2">
-                        <button @click="showMobileMenu = !showMobileMenu" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+                        <button @click="toggleMobileMenu" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
                             <span class="sr-only">Close menu</span>
                             <!-- Heroicon name: outline/x -->
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -83,21 +83,21 @@
 
                 <div class="pt-5 pb-6">
                     <div class="px-2 space-y-1">
-                        <router-link to="/about" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                        <a @click="about" href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
                             About
-                        </router-link>
+                        </a>
 
-                        <router-link to="/account" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                        <a @click="account" href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
                             My Account
-                        </router-link>
+                        </a>
 
-                        <router-link to="/help" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                        <a @click="help" href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
                             Need help?
-                        </router-link>
+                        </a>
 
-                        <router-link to="/airdrop" class="block px-3 py-2 rounded-md text-base font-bold text-red-500 hover:bg-warm-gray-50">
+                        <a @click="airdrop" href="javascript://" class="block px-3 py-2 rounded-md text-base font-bold text-red-500 hover:bg-warm-gray-50">
                             Hackathon Airdrop
-                        </router-link>
+                        </a>
                     </div>
 
                     <div class="mt-6 px-5">
@@ -113,6 +113,9 @@
 </template>
 
 <script>
+/* Import modules. */
+import { inject } from 'vue'
+
 export default {
     components: {
         //
@@ -123,17 +126,108 @@ export default {
         }
     },
     methods: {
-        connect() {
-            alert(`This feature is NOT quite ready yet.\nPlease try again in a few hours..`)
+        /**
+         * Set User
+         */
+        setUser(_user) {
+            /* Set user. */
+            this.$store.commit('setUser', _user)
+        },
+
+        /**
+         * Handle Current User
+         */
+        handleCurrentUser() {
+            const user = this.$moralis.User.current()
+            // console.log('MORALIS USER', user)
+
+            if (user) {
+                this.setUser(user)
+            }
+        },
+
+        /**
+         * Connect Wallet
+         */
+        async connect() {
+            this.showMobileMenu = false
+
+            // const user = await this.$moralis.Web3.authenticate()
+            const user = await this.$moralis.Web3
+                .authenticate({
+                    signingMessage: `Welcome to Ava's Push Notification Service. Please authenticate your account -- `
+                })
+                .catch(err => {
+                    console.error(err)
+
+                    if (err && err.code && err.code === 4100) {
+                        alert('Please sign-in to your Web3 wallet to continue.')
+                    } else if (err && err.message) {
+                        alert(err.message)
+                    }
+                })
+
+            /* Save user. */
+            this.setUser(user)
+        },
+
+        /**
+         * Disconnect
+         */
+        async disconnect() {
+            await this.$moralis.User.logOut()
+                .catch(err => {
+                    console.error(err)
+                })
+            this.setUser({})
+        },
+
+        toggleMobileMenu() {
+            this.showMobileMenu = !this.showMobileMenu
+        },
+
+        home() {
+            this.showMobileMenu = false
+
+            this.$router.push('/')
+        },
+
+        about() {
+            this.showMobileMenu = false
+
+            this.$router.push('/about')
+        },
+
+        account() {
+            this.showMobileMenu = false
+
+            this.$router.push('/account')
+        },
+
+        help() {
+            this.showMobileMenu = false
+
+            this.$router.push('/help')
+        },
+
+        airdrop() {
+            this.showMobileMenu = false
+
+            this.$router.push('/airdrop')
         },
 
     },
     created: function () {
         /* Set mobile menu flag. */
         this.showMobileMenu = false
+
+        // const store = useStore()
+        this.$moralis = inject('$moralis')
+
     },
     mounted: function () {
-        //
+        /* Handle current user. */
+        this.handleCurrentUser()
     },
 }
 </script>
