@@ -85,7 +85,7 @@
 
                                 <li>
                                     <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Start Building
+                                        Start BUIDLing
                                     </a>
                                 </li>
 
@@ -122,16 +122,10 @@
 
                         <div class="mt-12 md:mt-0">
                             <h3 class="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
-                                Legal
+                                Resources
                             </h3>
 
                             <ul role="list" class="mt-4 space-y-4">
-                                <li>
-                                    <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Claim
-                                    </a>
-                                </li>
-
                                 <li>
                                     <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
                                         Privacy
@@ -140,7 +134,13 @@
 
                                 <li>
                                     <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Terms
+                                        Terms of Service
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                        Legal
                                     </a>
                                 </li>
                             </ul>

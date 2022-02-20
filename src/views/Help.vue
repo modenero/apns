@@ -31,7 +31,7 @@
 
                         <div class="p-6 bg-blue-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
                             <a href="https://docs.apns.io" target="_blank" class="text-base font-medium text-blue-700 hover:text-blue-600">
-                                Open APNS Docs<span aria-hidden="true"> &rarr;</span>
+                                Open the APNS docs<span aria-hidden="true"> &rarr;</span>
                             </a>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
 
                         <div class="p-6 bg-blue-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
                             <a href="https://twitter.com/APNS_io" target="_blank" class="text-base font-medium text-blue-700 hover:text-blue-600">
-                                Go to Twitter<span aria-hidden="true"> &rarr;</span>
+                                Open our Twitter page<span aria-hidden="true"> &rarr;</span>
                             </a>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
 
                         <div class="p-6 bg-blue-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
                             <a href="https://github.com/modenero/apns" target="_blank" class="text-base font-medium text-blue-700 hover:text-blue-600">
-                                Open GitHub<span aria-hidden="true"> &rarr;</span>
+                                Open our GitHub page<span aria-hidden="true"> &rarr;</span>
                             </a>
                         </div>
                     </div>
@@ -138,12 +138,14 @@
         </div>
 
         <!-- CTA Section -->
-        <section class="relative bg-white" aria-labelledby="join-heading">
+        <section class="relative bg-white mb-32" aria-labelledby="join-heading">
             <div class="hidden absolute inset-x-0 h-1/2 bg-blue-gray-50 lg:block" aria-hidden="true"></div>
+
             <div class="max-w-7xl mx-auto bg-blue-600 lg:bg-transparent lg:px-8">
                 <div class="lg:grid lg:grid-cols-12">
                     <div class="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-4 lg:py-16 lg:bg-transparent">
                         <div class="absolute inset-x-0 h-1/2 bg-blue-gray-50 lg:hidden" aria-hidden="true"></div>
+
                         <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
                             <div class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
                                 <img
@@ -165,6 +167,7 @@
                                 </defs>
                                 <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
                             </svg>
+
                             <svg class="absolute top-full transform -translate-y-1/3 -translate-x-1/3 xl:-translate-y-1/2" width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
                                 <defs>
                                     <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -174,9 +177,16 @@
                                 <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
                             </svg>
                         </div>
+
                         <div class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
-                            <h2 class="text-3xl font-extrabold text-white" id="join-heading">Join our team</h2>
-                            <p class="text-lg text-white">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
+                            <h2 class="text-3xl font-extrabold text-white" id="join-heading">
+                                Join our team
+                            </h2>
+
+                            <p class="text-lg text-white">
+                                Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.
+                            </p>
+
                             <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-blue-700 hover:bg-blue-gray-50 sm:inline-block sm:w-auto" href="#">
                                 Explore open positions
                             </a>
@@ -186,39 +196,6 @@
             </div>
         </section>
 
-        <!-- Newsletter Section -->
-        <section class="max-w-md mx-auto py-24 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8 lg:flex lg:items-center" aria-labelledby="newsletter-heading">
-            <div class="lg:w-0 lg:flex-1">
-                <h2 class="text-3xl font-extrabold text-blue-gray-900 sm:text-4xl" id="newsletter-heading">Sign up for our newsletter</h2>
-                <p class="mt-3 max-w-3xl text-lg text-blue-gray-500">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.</p>
-            </div>
-            <div class="mt-8 lg:mt-0 lg:ml-8">
-                <form class="sm:flex">
-                    <label for="email-address" class="sr-only">Email address</label>
-                    <input
-                        id="email-address"
-                        name="email-address"
-                        type="email"
-                        autocomplete="email"
-                        required
-                        class="w-full px-5 py-3 border border-blue-gray-300 shadow-sm placeholder-blue-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs rounded-md"
-                        placeholder="Enter your email"
-                    />
-                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                        <button
-                            type="submit"
-                            class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                        >
-                            Notify me
-                        </button>
-                    </div>
-                </form>
-                <p class="mt-3 text-sm text-blue-gray-500">
-                    We care about the protection of your data. Read our
-                    <a href="#" class="font-medium underline"> Privacy Policy. </a>
-                </p>
-            </div>
-        </section>
     </main>
 </template>
 
