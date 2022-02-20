@@ -63,29 +63,42 @@
                                     </a>
                                 </li>
 
+                                <li>
+                                    <router-link to="/privacy" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                        Privacy
+                                    </router-link>
+                                </li>
+
+                                <li>
+                                    <router-link to="/tos" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                        Terms of Service
+                                    </router-link>
+                                </li>
+
                             </ul>
                         </div>
 
                         <div class="mt-12 md:mt-0">
                             <h3 class="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
-                                For Developers
+                                For Platforms
                             </h3>
+
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
+                                    <router-link to="/portal" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                        My Portal
+                                    </router-link>
+                                </li>
+
+                                <li>
                                     <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Our API
+                                        PPM/PPC Marketing
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Wallet Integration
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Start BUIDLing
+                                        Analytics
                                     </a>
                                 </li>
 
@@ -96,24 +109,25 @@
                     <div class="md:grid md:grid-cols-2 md:gap-8">
                         <div>
                             <h3 class="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
-                                APNS DAO
+                                For Developers
                             </h3>
+
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
-                                    <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Getting Started
+                                    <router-link to="/sandbox" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                        My Sandbox
+                                    </router-link>
+                                </li>
+
+                                <li>
+                                    <a href="https://api.apns.io" target="_blank" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                        Our API
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        $APNS
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Voting
+                                        Integrations
                                     </a>
                                 </li>
 
@@ -122,27 +136,34 @@
 
                         <div class="mt-12 md:mt-0">
                             <h3 class="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
-                                Resources
+                                APNS DAO
                             </h3>
 
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
-                                    <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Privacy
-                                    </a>
+                                    <router-link to="/community" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                        My Community
+                                    </router-link>
                                 </li>
 
                                 <li>
                                     <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Terms of Service
+                                        How To Join
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="javascript://" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
-                                        Legal
-                                    </a>
+                                    <router-link to="/$APNS" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                        $APNS
+                                    </router-link>
                                 </li>
+
+                                <li>
+                                    <router-link to="/gov" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                        Governance
+                                    </router-link>
+                                </li>
+
                             </ul>
                         </div>
                     </div>

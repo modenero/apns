@@ -1,6 +1,6 @@
 <template>
-    <main>
-        <h1>Blank View</h1>
+    <main class="max-w-5xl mx-auto">
+        <h1 class="mt-5 text-4xl text-center">Blank View</h1>
     </main>
 </template>
 

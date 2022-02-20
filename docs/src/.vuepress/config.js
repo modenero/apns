@@ -54,6 +54,9 @@ module.exports = {
           children: [
             '',
             'examples',
+            '$APNS',
+            'blockchains',
+            'platforms',
           ]
         }
       ],

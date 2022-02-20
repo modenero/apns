@@ -5,10 +5,10 @@
                 <div class="flex items-center flex-1">
 
                     <div class="flex items-center justify-between w-full lg:w-auto">
-                        <a href="javascript://">
+                        <router-link to="/">
                             <span class="sr-only">APNS: Ava Push Notification Service</span>
                             <img class="h-12 w-auto sm:h-16" :src="require('../assets/logo.png')" alt="APNS" />
-                        </a>
+                        </router-link>
 
                         <div class="-mr-2 flex items-center lg:hidden">
                             <button
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="hidden lg:flex lg:items-center lg:space-x-6">
-                    <a href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                    <a @click="connect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
                         Connect Your Wallet
                     </a>
                 </div>
@@ -95,13 +95,13 @@
                             Need help?
                         </router-link>
 
-                        <a @click="hackathon" href="javascript://" class="block px-3 py-2 rounded-md text-base font-bold text-red-500 hover:bg-warm-gray-50">
-                            Moralis + AVAX Hackathon
-                        </a>
+                        <router-link to="/airdrop" class="block px-3 py-2 rounded-md text-base font-bold text-red-500 hover:bg-warm-gray-50">
+                            Hackathon Airdrop
+                        </router-link>
                     </div>
 
                     <div class="mt-6 px-5">
-                        <a href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                        <a @click="connect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
                             Connect Your Wallet
                         </a>
                     </div>
@@ -123,13 +123,8 @@ export default {
         }
     },
     methods: {
-        hackathon() {
-            alert(`
-Thank you for supporting our Moralis + Avalanche Hackathon project and Team Modenero
-
-Download the Ava GoGo DeFi app TODAY!
-https://avagogo.io/download
-            `)
+        connect() {
+            alert(`This feature is NOT quite ready yet.\nPlease try again in a few hours..`)
         },
 
     },
