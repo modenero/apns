@@ -57,12 +57,28 @@
                             </svg>
                         </div>
 
-                        <h3 class="text-lg font-medium text-white">
-                            Your Notification Details
+                        <h3 class="text-2xl font-medium text-white">
+                            NEW Alert Guide
                         </h3>
 
                         <p class="mt-6 text-base text-teal-50 max-w-3xl">
-                            Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.
+                            Creating a new alert and modifying your current alerts requires a bit of gas.
+                        </p>
+
+                        <p class="mt-6 text-base text-teal-50 max-w-3xl">
+                            <strong class="block text-lg">IMPORTANT NOTE:</strong>
+
+                            <span class="block mt-2">
+                                This service <strong>DOES NOT</strong> depend on a centralized API server.
+                            </span>
+
+                            <span class="block mt-2">
+                                All of your requests are sent using <a class="text-blue-700 font-bold hover:underline" href="javascript://">Event Logs</a>, which are recorded on-chain.
+                            </span>
+
+                            <span class="block mt-2">
+                                Our distributed network of servers read those logs and fulfill your requests.
+                            </span>
                         </p>
 
                         <dl class="hidden mt-8 space-y-6">
@@ -294,6 +310,7 @@
                                         name="email"
                                         type="email"
                                         autocomplete="email"
+                                        placeholder="satoshi@bitcoin.org"
                                         class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                                     />
                                 </div>
@@ -317,6 +334,7 @@
                                         name="mobile"
                                         id="mobile"
                                         autocomplete="tel"
+                                        placeholder="+1 404 555-1337"
                                         class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                                         aria-describedby="mobile-optional"
                                     />
@@ -329,7 +347,13 @@
                                 </label>
 
                                 <div class="mt-1">
-                                    <input type="text" name="subject" id="subject" class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md" />
+                                    <input
+                                        type="text"
+                                        name="subject"
+                                        id="subject"
+                                        placeholder="Enter your message subject here"
+                                        class="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                    />
                                 </div>
                             </div>
 
@@ -386,7 +410,19 @@ export default {
     },
     methods: {
         createAlert() {
-            alert(`This feature is NOT quite ready yet.\nPlease try again in a few hours..`)
+            /* Initialize package. */
+            let pkg = {}
+
+            /* Validate address. */
+            if (!this.address) {
+                return alert('Please enter your blockchain address.')
+            }
+
+            /* Set address. */
+            pkg.address = this.address
+
+            // FOR DEBUGGING PURPOSES ONLY
+            alert(JSON.stringify(pkg, null, 4))
         },
 
     },
