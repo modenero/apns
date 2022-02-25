@@ -634,6 +634,9 @@
 </template>
 
 <script>
+/* Import modules. */
+import { ethers } from 'ethers'
+
 export default {
     components: {
         //
@@ -677,7 +680,7 @@ export default {
          *
          * NOTE: This requires on-chain gas to be spent.
          */
-        create() {
+        async create() {
             /* Initialize package. */
             let pkg = {}
 
@@ -724,6 +727,91 @@ export default {
 
             // FOR DEBUGGING PURPOSES ONLY
             alert(JSON.stringify(pkg, null, 4))
+
+
+            /* Validate Web3 provider. */
+            if (!window.ethereum) {
+                /* Send notification request. */
+                // this.$store.dispatch('showNotif', {
+                //     icon: 'error',
+                //     title: 'MetaMask Error!',
+                //     message: `No Web3 provider found!`,
+                // })
+                alert('No Web3 provider found!')
+
+                return
+            }
+
+            /* Connect to Web3 provider. */
+            await window.ethereum
+                .enable()
+                .catch(err => console.error(err))
+
+
+
+            /* Initialize provider. */
+            const provider = new ethers.providers
+                .Web3Provider(window.ethereum)
+            console.log('PROVIDER', provider)
+
+            /* Set signer. */
+            const signer = provider.getSigner()
+
+
+            this.blockNum = await provider
+                .getBlockNumber()
+                .catch(err => console.error(err))
+            console.info('Current block height:', this.blockNum) // eslint-disable-line
+
+            // FOR DEVELOPMENT PURPOSES ONLY
+            // The first campaign contract is hardcoded.
+            // const cAddr = '0x7aacec83e10d8f8dfdfaa4858d55b0cc29ee4795' // Polygon
+            const cAddr = '0x7aacec83e10d8f8dfdfaa4858d55b0cc29ee4795' // Avalanche
+
+            /* Set Campaign ABI. */
+            const cAbi = require('../abis/emitter.json')
+
+            /* Initialize campaign instance. */
+            const event = new ethers.Contract(cAddr, cAbi, signer)
+            console.log('CONTRACT (event):', event) // eslint-disable-line
+
+            // const pkg = {
+            //     hi: 'there',
+            // }
+
+            const response = await event
+                .notify('0x7465737400000000000000000000000000000000000000000000000000000000', JSON.stringify(pkg))
+            console.log('EVENT RESPONSE', response) // eslint-disable-line
+
+
+            // /* Set contract ABI (Telr) Exchange. */
+            // const abi = ''
+            //
+            // /* Initialize contract connection via Web3 Provider. */
+            // const contract = new ethers.Contract(contractAddress, abi, provider)
+            //
+            // /* Set key. */
+            // // FIXME: Calulate this value `causes.assets.md`.
+            // // const key = '0xbc3ff924269ad0b21b98ec6cfb735f77b55475c8e099357a5858e1f1efc5b397'
+            //
+            // /* Retrieve owner. */
+            // const owner = await contract.owner()
+            // console.log('OWNER', owner)
+            //
+            // /* Generate secret hash. */
+            // const secretHash = await contract.generateSecretHash(Buffer.from('de5738e6eca81c4e9a0dfeb39c75a29c6751e78c3a7d49175eeef742bf7c8615', 'hex'))
+            // // let hash = ethers.utils.arrayify('0xde5738e6eca81c4e9a0dfeb39c75a29c6751e78c3a7d49175eeef742bf7c8615')
+            // // console.log('HASH', hash, Buffer.from(hash).toString('hex'));
+            // // const secretHash = await contract.generateSecretHash(hash)
+            // console.log('SECRET HASH', secretHash)
+            //
+            // let maker = '0x830ad555fCe0547782E14d67d22002082916e660'
+            // let token = '0xef54ae01d55adecac852cbe3e6f16b0d1bf38de0'
+            // let secret = Buffer.from('de5738e6eca81c4e9a0dfeb39c75a29c6751e78c3a7d49175eeef742bf7c8615', 'hex')
+            // const orderid = await contract.generateOrderid(maker, token, secret)
+            // console.log('ORDER ID', orderid);
+
+
         },
 
     },
