@@ -31,8 +31,8 @@
                             About
                         </router-link>
 
-                        <router-link to="/account" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
-                            My Account
+                        <router-link to="/profile" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
+                            My Profile
                         </router-link>
 
                         <router-link to="/help" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
@@ -87,8 +87,8 @@
                             About
                         </a>
 
-                        <a @click="account" href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
-                            My Account
+                        <a @click="profile" href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
+                            My Profile
                         </a>
 
                         <a @click="help" href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50">
@@ -199,10 +199,10 @@ export default {
             this.$router.push('/about')
         },
 
-        account() {
+        profile() {
             this.showMobileMenu = false
 
-            this.$router.push('/account')
+            this.$router.push('/profile')
         },
 
         help() {

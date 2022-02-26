@@ -4,14 +4,15 @@ import Home from '../views/Home'
 
 import $APNS from '../views/$APNS'
 import About from '../views/About'
-import Account from '../views/Account'
+import Admin from '../views/Admin'
 import Airdrop from '../views/Airdrop'
 import Community from '../views/Community'
 import Gov from '../views/Gov'
 import Help from '../views/Help'
-import Portal from '../views/Portal'
 import Privacy from '../views/Privacy'
+import Profile from '../views/Profile'
 import Sandbox from '../views/Sandbox'
+import Sponsors from '../views/Sponsors'
 import ToS from '../views/ToS'
 
 const routes = [
@@ -24,8 +25,8 @@ const routes = [
         component: About,
     },
     {
-        path: '/account',
-        component: Account,
+        path: '/admin',
+        component: Admin,
     },
     {
         path: '/airdrop',
@@ -48,16 +49,20 @@ const routes = [
         component: Help,
     },
     {
-        path: '/portal',
-        component: Portal,
-    },
-    {
         path: '/privacy',
         component: Privacy,
     },
     {
+        path: '/profile',
+        component: Profile,
+    },
+    {
         path: '/sandbox',
         component: Sandbox,
+    },
+    {
+        path: '/sponsors',
+        component: Sponsors,
     },
     {
         path: '/tos',

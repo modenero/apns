@@ -551,6 +551,7 @@
 <script>
 /* Import modules. */
 import { ethers } from 'ethers'
+import Moralis from 'moralis'
 
 /* Import components. */
 import Guide from './Creator/Guide'
@@ -734,6 +735,31 @@ export default {
             // console.log('ORDER ID', orderid);
 
 
+        },
+
+        /**
+         * Add Network
+         *
+         * Add a new network / chainid to Web3 provider.
+         */
+        async addNetwork() {
+            // TODO: Add support for more networks.
+
+            const chainId = 43114
+            const chainName = 'Avalanche Mainnet'
+            const currencyName = 'AVAX'
+            const currencySymbol = 'AVAX'
+            const rpcUrl = 'https://api.avax.network/ext/bc/C/rpc'
+            const blockExplorerUrl = 'https://cchain.explorer.avax.network/'
+
+            await Moralis.addNetwork(
+                chainId,
+                chainName,
+                currencyName,
+                currencySymbol,
+                rpcUrl,
+                blockExplorerUrl
+            )
         },
 
     },
