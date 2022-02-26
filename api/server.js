@@ -45,8 +45,14 @@ app.get('/', (req, res) => {
     res.end(welcome)
 })
 
-/* Initialize Accounts route. */
+/* Initialize Account routes. */
 app.get('/v1/accounts', require('./routes/accounts'))
+
+/* Initialize Polygon routes. */
+app.post('/v1/polygon/mainnet', require('./routes/relay'))
+
+/* Initialize External (3rd-party) routes. */
+app.post('/v1/ext/moralis', require('./routes/ext/moralis'))
 
 
 /* Start listening for connections. */

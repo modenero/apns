@@ -187,8 +187,8 @@ const watcher = async () => {
 
     const result = await Moralis.Cloud
         .run(type, {
-            address: PolygonAcct,
-            // address: AvalancheSponsor,
+            // address: PolygonAcct,
+            address: AvalancheSponsor,
         }, {
             useMasterKey: true,
         })
