@@ -40,7 +40,7 @@
                         </router-link>
 
                         <router-link to="/airdrop" class="text-base font-bold text-red-500 hover:text-warm-gray-900">
-                            Hackathon Airdrop
+                            $APNS Airdrop
                         </router-link>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         </a>
 
                         <a @click="airdrop" href="javascript://" class="block px-3 py-2 rounded-md text-base font-bold text-red-500 hover:bg-warm-gray-50">
-                            Hackathon Airdrop
+                            $APNS Airdrop
                         </a>
                     </div>
 

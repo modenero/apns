@@ -8,9 +8,17 @@
                 </h1>
 
                 <p class="mt-6 text-xl text-warm-gray-500 max-w-3xl">
-                    <span class="block">It takes less than a minute to <span class="text-purple-500 font-medium">Add a NEW Alert!</span></span>
-                    <span class="block">Sponsored notifications are 100% FREE.</span>
-                    <span class="block">Premium notifications require an AVAX balance in your APNS wallet.</span>
+                    <span class="block">
+                        It takes less than a minute to <span class="text-purple-500 font-medium">Add a NEW Alert!</span>
+                    </span>
+
+                    <span class="block">
+                        Sponsored notifications are 100% FREE.
+                    </span>
+
+                    <span class="block">
+                        Premium notifications require staked $APNS.
+                    </span>
                 </p>
             </div>
         </div>

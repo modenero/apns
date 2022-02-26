@@ -2,7 +2,7 @@
     <main class="overflow-hidden">
         <Intro />
 
-        <Create />
+        <Creator />
 
         <Contact />
     </main>
@@ -11,13 +11,13 @@
 <script>
 /* Import components. */
 import Contact from '@/components/Contact'
-import Create from '@/components/Create'
+import Creator from '@/components/Creator'
 import Intro from '@/components/Intro'
 
 export default {
     components: {
         Contact,
-        Create,
+        Creator,
         Intro,
     },
     data: () => {
