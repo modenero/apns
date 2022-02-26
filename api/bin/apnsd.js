@@ -40,6 +40,7 @@ Moralis.start({ serverUrl, appId, masterKey })
 // const PolygonAcct = '0xBCc532C9c2052f09DF7E8b65Cd2845f55de34ac6' // MetaMask
 const PolygonAcct = '0xE2266286745fEFdDeC42D895abC85a33710a2078' // Brave
 const AvalancheSponsor = '0xDC1C3Eb7AD2a1ABF0CBb1B115B67ddd4cfAe5B66'
+const EventEmitter = '0x7AaCEC83e10D8F8DfDfaa4858d55b0cC29eE4795' // FOR TESTING PURPOSES ONLY
 
 const sendMsg = () => {
     /* Set message. */
@@ -181,14 +182,15 @@ const manager = async () => {
 const watcher = async () => {
     // const type = 'watchAvaxAddress' // Avalanche
     // const type = 'watchBscAddress' // Binance Smart Chain
-    // const type = 'watchEthAddress' // Ethereum
+    const type = 'watchEthAddress' // Ethereum
     // const type = 'watchFtmAddress' // Fantom
-    const type = 'watchPolygonAddress' // Polygon
+    // const type = 'watchPolygonAddress' // Polygon
 
     const result = await Moralis.Cloud
         .run(type, {
+            // address: AvalancheSponsor,
+            address: EventEmitter,
             // address: PolygonAcct,
-            address: AvalancheSponsor,
         }, {
             useMasterKey: true,
         })

@@ -46,8 +46,11 @@
                 </div>
 
                 <div class="hidden lg:flex lg:items-center lg:space-x-6">
-                    <a @click="connect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                    <a v-if="!user" @click="connect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
                         Connect Your Wallet
+                    </a>
+                    <a v-if="user" @click="disconnect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                        Sign Out
                     </a>
                 </div>
             </nav>
@@ -101,8 +104,11 @@
                     </div>
 
                     <div class="mt-6 px-5">
-                        <a @click="connect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                        <a v-if="!user" @click="connect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
                             Connect Your Wallet
+                        </a>
+                        <a v-if="user" @click="disconnect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                            Sign Out
                         </a>
                     </div>
 
@@ -123,6 +129,7 @@ export default {
     data: () => {
         return {
             showMobileMenu: null,
+            user: null,
         }
     },
     methods: {
@@ -138,11 +145,11 @@ export default {
          * Handle Current User
          */
         handleCurrentUser() {
-            const user = this.$moralis.User.current()
+            this.user = this.$moralis.User.current()
             // console.log('MORALIS USER', user)
 
-            if (user) {
-                this.setUser(user)
+            if (this.user) {
+                this.setUser(this.user)
             }
         },
 
@@ -153,7 +160,7 @@ export default {
             this.showMobileMenu = false
 
             // const user = await this.$moralis.Web3.authenticate()
-            const user = await this.$moralis.Web3
+            this.user = await this.$moralis.Web3
                 .authenticate({
                     signingMessage: `Welcome to Ava's Push Notification Service. Please authenticate your account -- `
                 })
@@ -166,10 +173,10 @@ export default {
                         alert(err.message)
                     }
                 })
-            console.log('MORALIS USER', user)
+            console.log('MORALIS USER', this.user)
 
             /* Save user. */
-            this.setUser(user)
+            this.setUser(this.user)
         },
 
         /**
@@ -180,7 +187,10 @@ export default {
                 .catch(err => {
                     console.error(err)
                 })
-            this.setUser({})
+            this.user = null
+            this.setUser(null)
+
+            alert(`You've been signed out successfully!`)
         },
 
         toggleMobileMenu() {

@@ -34,7 +34,7 @@ const moralis = async function (req, res) {
     }
 
     /* Enter into (local) Moralis DB. */
-    response = moralisDb.put({
+    response = await moralisDb.put({
         _id: uuidv4(),
         ...body,
         createdAt: moment().unix(),
