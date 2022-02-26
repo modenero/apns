@@ -1,15 +1,13 @@
----
-sidebar: auto
----
+# Introduction
 
-# Protocol
+Welcome BUIDLers!
 
-## foo
+## Specification
 
 - Type: `string`
 - Default: `/`
 
-## bar
+## Examples
 
 - Type: `string`
 - Default: `/`

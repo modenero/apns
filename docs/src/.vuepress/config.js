@@ -8,7 +8,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: `Add push notifications from ALL your smart contracts to: email, SMS and popular social networks.`,
+  description: `Create UNLIMITED DeFi push notifications to your: email, SMS and ALL popular social networks.`,
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -34,12 +34,16 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
-        link: '/guide/',
+        text: 'Users',
+        link: '/users/',
       },
       {
-        text: 'Protocol',
-        link: '/protocol/'
+        text: 'Sponsors',
+        link: '/sponsors/'
+      },
+      {
+        text: 'Builders',
+        link: '/builders/'
       },
       {
         text: 'Open dApp',
@@ -47,9 +51,27 @@ module.exports = {
       }
     ],
     sidebar: {
-      '/guide/': [
+      '/builders/': [
         {
-          title: 'Guide',
+          title: 'Builders Guide',
+          collapsable: false,
+          children: [
+            '',
+          ]
+        }
+      ],
+      '/sponsors/': [
+        {
+          title: 'Sponsors Guide',
+          collapsable: false,
+          children: [
+            '',
+          ]
+        }
+      ],
+      '/users/': [
+        {
+          title: 'User Guide',
           collapsable: false,
           children: [
             '',

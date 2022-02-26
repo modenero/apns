@@ -80,12 +80,12 @@
 
                         <div class="mt-12 md:mt-0">
                             <h3 class="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
-                                For Platforms
+                                For Sponsors
                             </h3>
 
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
-                                    <router-link to="/portal" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
+                                    <router-link to="/sponsors" class="text-base text-warm-gray-400 hover:text-warm-gray-300">
                                         My Portal
                                     </router-link>
                                 </li>
@@ -109,7 +109,7 @@
                     <div class="md:grid md:grid-cols-2 md:gap-8">
                         <div>
                             <h3 class="text-sm font-semibold text-warm-gray-200 tracking-wider uppercase">
-                                For Developers
+                                For Builders
                             </h3>
 
                             <ul role="list" class="mt-4 space-y-4">

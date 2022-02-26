@@ -3,7 +3,7 @@ home: true
 heroImage: https://apns.io/logo.png
 tagline: Ava's Push Notification Service
 actionText: Quick Start →
-actionLink: /guide/
+actionLink: /users/
 features:
 - title: Subscribe For FREE
   details: Sponsored contracts are FREE to subscribe to. All other contracts require a deposit to your APNS wallet.
