@@ -69,7 +69,7 @@
                     <div class="mt-6 text-gray-500 space-y-6">
                         <p class="text-lg">
                             We're getting you off to a great start with your push notifications.
-                            Connect your wallet and collect UP TO 10,000 $APNS tokens, INSTANTLY!
+                            Connect your wallet and collect your share of <strong>UP TO 2 MILLION $APNS, EVERY DAY!</strong>
                         </p>
 
                         <p class="text-base leading-7">
@@ -95,7 +95,7 @@
                             </dt>
 
                             <dd class="text-xl font-extrabold tracking-tight text-gray-900">
-                                Sunday, February 20th
+                                Sunday, February 27th
                                 <br />@ 00:00 UTC
                             </dd>
                         </div>
@@ -106,8 +106,8 @@
                             </dt>
 
                             <dd class="text-xl font-extrabold tracking-tight text-gray-900">
-                                Sunday, March 20th
-                                <br />30 days left
+                                Thursday, March 31st
+                                <br />XX days left
                             </dd>
                         </div>
 

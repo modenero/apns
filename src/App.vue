@@ -2,7 +2,7 @@
     <main class="bg-white">
         <Header v-if="showHeader" />
 
-        <router-view/>
+        <router-view />
 
         <Footer v-if="showFooter" />
     </main>
@@ -47,7 +47,7 @@ export default {
                 this.showHeader = true
                 this.showFooter = true
             }
-        }, 1)
+        }, 10)
 
     },
     mounted: function () {
