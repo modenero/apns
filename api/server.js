@@ -52,7 +52,9 @@ app.get('/v1/accounts', require('./routes/accounts'))
 app.post('/v1/polygon/mainnet', require('./routes/relay'))
 
 /* Initialize External (3rd-party) routes. */
+// app.post('/v1/ext/avagogo', require('./routes/ext/avagogo'))
 app.post('/v1/ext/moralis', require('./routes/ext/moralis'))
+// app.post('/v1/ext/telr', require('./routes/ext/telr'))
 
 
 /* Start listening for connections. */

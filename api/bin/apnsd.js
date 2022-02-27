@@ -1,9 +1,16 @@
 #!/usr/bin/env node
 
+/* Set account SID. */
+const accountSid = process.env.TWILIO_ACCOUNT_SID
+
+/* Set authorization token. */
+const authToken = process.env.TWILIO_AUTH_TOKEN
+
 const { ethers } = require('ethers')
 const Moralis = require('moralis/node')
 const PouchDB = require('pouchdb')
-// const { v4: uuidv4 } = require('uuid')
+const Twilio = require('twilio')(accountSid, authToken)
+const { v4: uuidv4 } = require('uuid')
 
 /* Set database authorization. */
 const apnsAuth = process.env.APNS_AUTH
@@ -13,23 +20,14 @@ const polygonAuth = process.env.POLYGON_AUTH
 const apnsDb = new PouchDB(`http://apns:${apnsAuth}@localhost:5984/apns`)
 const polygonMainnetDb = new PouchDB(`http://polygon:${polygonAuth}@localhost:5984/polygon_mainnet`)
 
-/* Set account SID. */
-const accountSid = process.env.TWILIO_ACCOUNT_SID
-
-/* Set authorization token. */
-const authToken = process.env.TWILIO_AUTH_TOKEN
-
-/* Initialize client. */
-const client = require('twilio')(accountSid, authToken)
-
 /* Set server URL. */
-const serverUrl = 'https://sdxoimq5qr9a.usemoralis.com:2053/server'
+const serverUrl = process.env.MORALIS_SERVER_URL
 
 /* Set application id. */
-const appId = 'pzls6wPNQQtaVnMjubFYnnIWjcghkYfRW1Ytgot1'
+const appId = process.env.MORALIS_APP_ID
 
 /* Set master key. */
-const masterKey = 'oO4LJwOOewl8nY8sTL4CgDU7KVPFzGid7itc8LoF'
+const masterKey = process.env.MORALIS_MASTER_KEY
 
 /* Initialize Web3. */
 const web3 = new Moralis.Web3()
@@ -39,28 +37,69 @@ Moralis.start({ serverUrl, appId, masterKey })
 
 // const PolygonAcct = '0xBCc532C9c2052f09DF7E8b65Cd2845f55de34ac6' // MetaMask
 const PolygonAcct = '0xE2266286745fEFdDeC42D895abC85a33710a2078' // Brave
-const AvalancheSponsor = '0xDC1C3Eb7AD2a1ABF0CBb1B115B67ddd4cfAe5B66'
+const AvaSponsorsAcct = '0xDC1C3Eb7AD2a1ABF0CBb1B115B67ddd4cfAe5B66' // HöS
 const EventEmitter = '0x7AaCEC83e10D8F8DfDfaa4858d55b0cC29eE4795' // FOR TESTING PURPOSES ONLY
 
-const sendMsg = () => {
-    /* Set message. */
-    client.messages
+
+/**
+ * Send Message
+ */
+const sendMsg = async (_destination) => {
+    /* Random String */
+    const _randomString = (length) => {
+        const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        let result = ''
+        for (let i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)]
+        return result
+    }
+
+    /* Initialize to. */
+    let to = null
+
+    /* Validate destination. */
+    if (!_destination) {
+        to = process.env.TWILIO_TEST_NUM
+    }
+
+    /* Validate to. */
+    if (!to) {
+        throw new Error('You MUST provide a destination number.')
+    }
+
+    /* Set activity. */
+    const activity = `Trader Joe collateral has dropped to 30%`
+
+    /* Set referral ID. */
+    // TODO: Pull (generated) value from DB.
+    const referralid = _randomString(6)
+
+    /* Set URL. */
+    // TODO: Verify "auto-linking" w/out (https://) prefix.
+    const url = `apns.io/r/${referralid}`
+
+    /* Create message. */
+    const response = await Twilio.messages
         .create({
-            body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+            body: `APNS | ${activity} | ${url}`,
             from: '+18788812888',
-            to: '+14048248743'
+            to,
         })
-        .then(message => console.log(message.sid));
+        .catch(err => console.error(err))
+    console.log('RESPONSE (sid):', response.sid);
 }
 
+
+/**
+ * Initialization
+ */
 const init = async () => {
     // let query = new Moralis.Query('APNS')
     // let subscription = await query.subscribe()
 
     /* Initialize Polygon transactions query. */
-    const query = new Moralis.Query('MaticTransactions')
+    const query = new Moralis.Query('AvaxTransactions')
 
-    /* Set query address. */
+    /* Set (address) constraint. */
     query.equalTo('to_address', PolygonAcct)
 
     /* Subscribe for real-time updates. */
@@ -105,6 +144,10 @@ const init = async () => {
     })
 }
 
+
+/**
+ * Query
+ */
 const query = async () => {
     Moralis.LiveQuery.on('open', () => {
         console.log('socket connection established');
@@ -119,6 +162,7 @@ const query = async () => {
     })
 
 }
+
 
 /**
  * Manager
@@ -179,6 +223,10 @@ const manager = async () => {
 
 }
 
+
+/**
+ * (Address) Watcher
+ */
 const watcher = async () => {
     // const type = 'watchAvaxAddress' // Avalanche
     // const type = 'watchBscAddress' // Binance Smart Chain
@@ -188,7 +236,7 @@ const watcher = async () => {
 
     const result = await Moralis.Cloud
         .run(type, {
-            // address: AvalancheSponsor,
+            // address: AvaSponsorsAcct,
             address: EventEmitter,
             // address: PolygonAcct,
         }, {
@@ -205,10 +253,11 @@ const watcher = async () => {
     console.log('RESULT (watchXxxAddress):', result)
 }
 
+sendMsg() // Use test number
 // init()
 // query()
 // manager()
-watcher()
+// watcher()
 
 // subscription.unsubscribe()
 
