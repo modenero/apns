@@ -3,8 +3,13 @@
         <!-- Profile section -->
         <div class="py-6 px-4 sm:p-6 lg:pb-8">
             <div>
-                <h2 class="text-lg leading-6 font-medium text-gray-900">Profile</h2>
-                <p class="mt-1 text-sm text-gray-500">This information will be displayed publicly so be careful what you share.</p>
+                <h2 class="text-lg leading-6 font-medium text-gray-900">
+                    My Profile
+                </h2>
+
+                <p class="mt-1 text-sm text-gray-500">
+                    This information will be displayed publicly so be careful what you share.
+                </p>
             </div>
 
             <div class="mt-6 flex flex-col lg:flex-row">

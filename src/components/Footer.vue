@@ -172,7 +172,7 @@
 
             <div class="mt-12 border-t border-warm-gray-700 pt-8">
                 <p class="text-base text-warm-gray-400 xl:text-center">
-                    &copy; {{curYear}} Modenero Corp. All rights reserved.
+                    &copy; {{curYear}} APNS DAO. All rights reserved.
                 </p>
             </div>
         </div>
