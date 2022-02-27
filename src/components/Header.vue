@@ -49,8 +49,12 @@
                     <a v-if="!user" @click="connect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
                         Connect Your Wallet
                     </a>
-                    <a v-if="user" @click="disconnect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
-                        Sign Out | {{shortAddr}}
+                    <a v-if="user" @click="disconnect" href="javascript://" class="flex flex-row justify-center space-x-2 text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                        <span>Sign Out</span>
+
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
+
+                        <span>{{shortAddr}}</span>
                     </a>
                 </div>
             </nav>
@@ -107,8 +111,12 @@
                         <a v-if="!user" @click="connect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
                             Connect Your Wallet
                         </a>
-                        <a v-if="user" @click="disconnect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
-                            Sign Out | {{shortAddr}}
+                        <a v-if="user" @click="disconnect" href="javascript://" class="flex flex-row justify-center space-x-2 text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
+                            <span>Sign Out</span>
+
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
+
+                            <span>{{shortAddr}}</span>
                         </a>
                     </div>
 
