@@ -10,6 +10,7 @@ import Gov from '../views/Gov'
 import Help from '../views/Help'
 import Privacy from '../views/Privacy'
 import Profile from '../views/Profile'
+import Redirect from '../views/Redirect'
 import Sandbox from '../views/Sandbox'
 import ToS from '../views/ToS'
 
@@ -111,6 +112,10 @@ const routes = [
     {
         path: '/profile',
         component: Profile,
+    },
+    {
+        path: '/r/:id',
+        component: Redirect,
     },
     {
         path: '/sandbox',

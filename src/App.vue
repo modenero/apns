@@ -1,10 +1,10 @@
 <template>
     <main class="bg-white">
-        <Header />
+        <Header v-if="showHeader" />
 
         <router-view/>
 
-        <Footer />
+        <Footer v-if="showFooter" />
     </main>
 </template>
 
@@ -20,14 +20,35 @@ export default {
     },
     data: () => {
         return {
-            //
+            showHeader: null,
+            showFooter: null,
         }
     },
     methods: {
         //
     },
     created: function () {
-        //
+        /* Initailize header display. */
+        this.showHeader = false
+
+        /* Initailize footer display. */
+        this.showFooter = false
+
+        /* Wait until the next cycle. */
+        setTimeout(() => {
+            /* Set parameters. */
+            const route = this.$route
+            // console.log('APP (route):', route)
+
+            const path = route.path
+            // console.log('APP (path):', path)
+
+            if (path && path.slice(0, 2) !== '/r') {
+                this.showHeader = true
+                this.showFooter = true
+            }
+        }, 1)
+
     },
     mounted: function () {
         //

@@ -76,7 +76,6 @@ module.exports = {
           collapsable: false,
           children: [
             '',
-            'examples',
             '$APNS',
             'blockchains',
             'platforms',
