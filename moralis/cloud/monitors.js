@@ -30,7 +30,7 @@ Moralis.Cloud.afterSave('BscTransactions', async (request) => {
     // })
     const query = new Moralis.Query('WatchedBscAddress')
 
-    /* Set query params. */
+    /* Add (address) constraint. */
     query.equalTo('address', to_address)
 
     /* Execute DB query. */

@@ -57,6 +57,7 @@ module.exports = {
           collapsable: false,
           children: [
             '',
+            'examples',
           ]
         }
       ],

@@ -50,7 +50,7 @@
                         Connect Your Wallet
                     </a>
                     <a v-if="user" @click="disconnect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
-                        Sign Out
+                        Sign Out | {{shortAddr}}
                     </a>
                 </div>
             </nav>
@@ -108,7 +108,7 @@
                             Connect Your Wallet
                         </a>
                         <a v-if="user" @click="disconnect" href="javascript://" class="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow bg-teal-500 text-white font-medium hover:bg-teal-600">
-                            Sign Out
+                            Sign Out | {{shortAddr}}
                         </a>
                     </div>
 
@@ -128,9 +128,18 @@ export default {
     },
     data: () => {
         return {
+            address: null,
             showMobileMenu: null,
             user: null,
         }
+    },
+    computed: {
+        shortAddr() {
+            if (!this.address) return ''
+
+            return this.address.slice(0, 6) + '...' + this.address.slice(-6)
+        },
+
     },
     methods: {
         /**
@@ -146,7 +155,13 @@ export default {
          */
         handleCurrentUser() {
             this.user = this.$moralis.User.current()
-            // console.log('MORALIS USER', user)
+            console.info('Moralis (current user):', this.user)
+
+            // const accounts = this.user.get('accounts')
+            // console.log('ACCOUNTS', accounts)
+
+            this.address = this.user.get('ethAddress')
+            console.log('Moralis (default address):', this.address)
 
             if (this.user) {
                 this.setUser(this.user)

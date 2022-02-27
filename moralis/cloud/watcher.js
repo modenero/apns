@@ -18,13 +18,16 @@ Moralis.Cloud.define('watchAvaxAddress', async (request) => {
         return null
     }
 
-    //Check address is not already being watched
-    const countQuery = new Moralis.Query('WatchedAvaxAddress')
+    /* Query watched (Avalanche) addresses. */
+    const query = new Moralis.Query('WatchedAvaxAddress')
 
-    countQuery.equalTo('address', address)
+    /* Add (address) constraint. */
+    query.equalTo('address', address)
 
-    const watchCount = await countQuery.count()
+    /* Request (address) count. */
+    const watchCount = await query.count()
 
+    /* Validate (address) count. */
     if (watchCount > 0) {
         return null
     }
