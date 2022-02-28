@@ -8,6 +8,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN
 
 const { ethers } = require('ethers')
 const Moralis = require('moralis/node')
+const nodemailer = require('nodemailer')
 const PouchDB = require('pouchdb')
 const Twilio = require('twilio')(accountSid, authToken)
 const { v4: uuidv4 } = require('uuid')
@@ -42,9 +43,105 @@ const EventEmitter = '0x7AaCEC83e10D8F8DfDfaa4858d55b0cC29eE4795' // FOR TESTING
 
 
 /**
- * Send Message
+ * Send Email
  */
-const sendMsg = async (_destination) => {
+const sendEmail = async () => {
+    /* Create reusable transporter object. */
+    let transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS,
+        },
+    })
+
+    const platform = `Trader Joe`
+
+    const from = `"${platform} via APNS" <no-reply@apns.io>`
+
+    /* Set (message) recipient(s). */
+    // NOTE: Separate multiple recipients with a (,) comma.
+    const to = process.env.SMTP_TEST_ADDR
+
+    /* Set (message) subject. */
+    const subject = `Your collateral has dropped to 30%`
+
+    /* Set (message) plain text. */
+    const text = `Why are you looking at this??`
+
+    /* Set (message) HTML text. */
+    const html =
+`
+<header style="width: 500px;">
+    <div style="margin-top: 25px;">
+        <span style="font-size: 1.4em; font-weight: bold;">Ava's Push Notification Service</span>
+    </div>
+
+    <div style="margin-top: 5px;">
+        <a style="font-size: 1.1em; font-weight: bold; text-decoration: none;" href="https://apns.io">
+            https://apns.io
+        </a>
+    </div>
+</header>
+
+<main style="width: 500px;">
+    <div style="padding: 15px;">
+        <p style="">
+            Something very import just happened.
+            You need to take care of it right away!
+        </p>
+    </div>
+
+    <a href="https://apns.io/r/aBc123" style="width: 200px; padding: 15px; font-size: 1.6em; border: 2pt solid #999999; border-radius: 10px; background-color: #CCCCCC; text-align: center;">
+        <span style="font-weight: bold; text-decoration: none;">
+            Launch App
+        </span>
+    </a>
+</main>
+
+<footer style=" width: 500px; margin-top: 30px; padding-top: 15px; border-top: 2pt solid #999999;">
+    <div style="font-style: bold;">
+        brought to you with 💖 from APNS DAO
+    </p>
+
+    <div style="font-size: 0.8em; color: #999999;">
+        <strong>Disclaimer:</strong>
+
+        <p style="font-size: 0.7em;">
+            Qui expetendis imitarentur. Sunt eiusmod te relinqueret ad aliquip non legam,
+            quem praetermissum possumus quis incididunt iis incididunt cillum officia.
+            Cupidatat anim est doctrina praesentibus, enim proident hic dolore aliqua ita ad
+            labore ab tamen ita sed sint consequat tractavissent, quorum quibusdam si
+        </p>
+    </div>
+</footer>
+`
+
+    /* Send mail with defined transport object. */
+    let info = await transporter.sendMail({
+        from,
+        to,
+        subject,
+        text,
+        html,
+    })
+    .catch(err => console.error(err))
+
+    if (info) {
+        console.log('Message sent: %s', info.messageId)
+
+    }
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+    return
+}
+
+
+/**
+ * Send SMS
+ */
+const sendSms = async (_destination) => {
     /* Random String */
     const _randomString = (length) => {
         const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -253,7 +350,11 @@ const watcher = async () => {
     console.log('RESULT (watchXxxAddress):', result)
 }
 
-sendMsg() // Use test number
+;(async () => {
+    sendEmail()
+
+})()
+// sendSms() // Use test number
 // init()
 // query()
 // manager()
